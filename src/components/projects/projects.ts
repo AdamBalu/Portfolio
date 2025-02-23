@@ -4,6 +4,7 @@ type Project = {
 	borderColor: 'emerald' | 'blue' | 'purple' | 'amber';
 	imgSrc: string;
 	imgWidth: number;
+	url: string;
 	chipLabels: string[];
 };
 
@@ -12,6 +13,7 @@ type SmallProject = {
 	imgSrc: string;
 	imgWidth: number;
 	chipLabel: string;
+	url: string;
 	borderColor?: 'white' | 'blue';
 };
 
@@ -27,7 +29,8 @@ export const projects: Project[] = [
 			'Maintained'
 		],
 		imgSrc: '/static/detoxrank-light.svg',
-		imgWidth: 25
+		imgWidth: 25,
+		url: 'https://play.google.com/store/apps/details?id=com.blaubalu.detoxrank'
 	},
 	{
 		title: 'Fancy Driller',
@@ -36,7 +39,8 @@ export const projects: Project[] = [
 		borderColor: 'purple',
 		chipLabels: ['Actively used', 'Handy'],
 		imgSrc: '/static/fancydriller-light.svg',
-		imgWidth: 40
+		imgWidth: 40,
+		url: 'https://fancy-driller.vercel.app/'
 	},
 	{
 		title: 'SnapShow',
@@ -45,7 +49,8 @@ export const projects: Project[] = [
 		borderColor: 'emerald',
 		chipLabels: ['Larger codebase', 'Innovative', 'Modern'],
 		imgSrc: '/static/snapshow-light.svg',
-		imgWidth: 45
+		imgWidth: 45,
+		url: 'https://snap-show.vercel.app/'
 	},
 	{
 		title: 'Fotosandrik',
@@ -53,7 +58,8 @@ export const projects: Project[] = [
 		borderColor: 'amber',
 		chipLabels: ['Simple design'],
 		imgSrc: '/static/rings-light.svg',
-		imgWidth: 40
+		imgWidth: 40,
+		url: 'https://fotosandrik.sk/'
 	}
 ];
 
@@ -62,37 +68,43 @@ export const smallProjects: SmallProject[] = [
 		title: 'Visitjakub Brno',
 		imgSrc: '/static/visitjakub-logo.svg',
 		imgWidth: 100,
-		chipLabel: 'Tourist attraction'
-	},
-	{
-		title: 'NavData',
-		imgSrc: '/static/navdata-logo.svg',
-		imgWidth: 160,
-		chipLabel: 'Train navigation'
+		chipLabel: 'Tourist attraction',
+		url: 'https://visitjakub.cz/'
 	},
 	{
 		title: 'My old portfolio',
 		imgSrc: '/static/old-portfolio-logo.svg',
 		imgWidth: 120,
-		chipLabel: 'Playful design'
-	},
-	{
-		title: 'Brno Ossuary',
-		imgSrc: '/static/ossuary.png',
-		imgWidth: 120,
-		chipLabel: 'Admin interface'
+		chipLabel: 'Playful design',
+		url: 'https://adambalu.vercel.app'
 	},
 	{
 		title: 'MH Shop',
 		imgSrc: '/static/mh-store-logo.svg',
 		imgWidth: 120,
-		chipLabel: 'E-commerce'
+		chipLabel: 'Online store',
+		url: 'https://mh-shop.vercel.app/'
 	},
+	{
+		title: 'NavData',
+		imgSrc: '/static/navdata-logo.svg',
+		imgWidth: 160,
+		chipLabel: 'Train navigation',
+		url: 'https://navsuite.cz/en/navdata-en/'
+	},
+
 	{
 		title: 'BookHub',
 		imgSrc: '/static/bookhub-logo.svg',
 		imgWidth: 100,
-		chipLabel: 'School project'
-		// https://pv179-bookhub.dyn.cloud.e-infra.cz/
+		chipLabel: 'School project',
+		url: 'https://pv179-bookhub.dyn.cloud.e-infra.cz/'
+	},
+	{
+		title: 'Brno Ossuary',
+		imgSrc: '/static/ossuary.png',
+		imgWidth: 120,
+		chipLabel: 'Admin interface',
+		url: 'https://podzemibrno.cz/mista-v-podzemi/kostnice-u-sv-jakuba/'
 	}
 ];

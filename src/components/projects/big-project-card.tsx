@@ -9,6 +9,7 @@ type BigProjectCardProps = {
 	description: string;
 	imgSrc: string;
 	imgWidth: number;
+	url: string;
 	borderColor?: 'emerald' | 'blue' | 'purple' | 'amber';
 	chipLabels: string[];
 };
@@ -18,6 +19,7 @@ export const BigProjectCard = ({
 	description,
 	imgSrc,
 	imgWidth,
+	url,
 	borderColor = 'emerald',
 	chipLabels
 }: BigProjectCardProps) => (
@@ -48,7 +50,10 @@ export const BigProjectCard = ({
 			</div>
 		</div>
 
-		<Button className="absolute bottom-4 right-4 bg-card dark:bg-secondary z-1 invisible group-hover:visible p-1 rounded-md">
+		<Button
+			className="absolute bottom-4 right-4 bg-card dark:bg-secondary z-1 opacity-0 group-hover:opacity-100 duration-100 p-1 rounded-md"
+			onClick={() => open(url)}
+		>
 			<Image
 				src="/static/globe.svg"
 				alt="visit"

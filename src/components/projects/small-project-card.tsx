@@ -8,6 +8,7 @@ type SmallProjectCardProps = {
 	title: string;
 	imgSrc: string;
 	imgWidth: number;
+	url: string;
 	borderColor?: 'white' | 'blue';
 	chipLabel: string;
 };
@@ -16,6 +17,7 @@ export const SmallProjectCard = ({
 	title,
 	imgSrc,
 	imgWidth,
+	url,
 	borderColor = 'white',
 	chipLabel
 }: SmallProjectCardProps) => (
@@ -37,7 +39,10 @@ export const SmallProjectCard = ({
 			</div>
 		</div>
 
-		<Button className="absolute bottom-4 right-4 bg-card dark:bg-secondary z-1 opacity-0 group-hover:opacity-100 p-1 rounded-md duration-100">
+		<Button
+			className="absolute bottom-4 right-4 bg-card dark:bg-secondary z-1 opacity-0 group-hover:opacity-100 p-1 rounded-md duration-100"
+			onClick={() => open(url)}
+		>
 			<Image
 				src="/static/globe.svg"
 				alt="visit"

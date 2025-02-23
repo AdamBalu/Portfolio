@@ -31,6 +31,7 @@ export const ProjectGrid = () => (
 						chipLabels={project.chipLabels}
 						imgSrc={project.imgSrc}
 						imgWidth={project.imgWidth}
+						url={project.url}
 					/>
 				))}
 			</div>
@@ -48,6 +49,7 @@ export const ProjectGrid = () => (
 									imgWidth={project.imgWidth}
 									chipLabel={project.chipLabel}
 									borderColor={project.borderColor}
+									url={project.url}
 								/>
 							))}
 					</div>
