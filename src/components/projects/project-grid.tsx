@@ -4,8 +4,11 @@ import { projects, smallProjects } from '@/components/projects/projects';
 import { SmallProjectCard } from '@/components/projects/small-project-card';
 
 export const ProjectGrid = () => (
-	<>
-		<div className="grid grid-cols-5 max-w-6xl mx-auto p-1 px-4 gap-3">
+	<div>
+		<div
+			className="grid grid-cols-5 max-w-6xl mx-auto p-1 px-4 gap-3 scroll-m-24"
+			id="projects"
+		>
 			<div className="col-span-3">
 				<UnderlinedText
 					text="My main projects"
@@ -57,5 +60,5 @@ export const ProjectGrid = () => (
 				))}
 			</div>
 		</div>
-	</>
+	</div>
 );
