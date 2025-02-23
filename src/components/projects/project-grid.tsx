@@ -9,13 +9,13 @@ export const ProjectGrid = () => (
 			<div className="col-span-3">
 				<UnderlinedText
 					text="My main projects"
-					subText="the ones that I am most proud of"
+					subText="the ones that I am most invested in and proud of"
 				/>
 			</div>
 			<div className="col-span-2 flex items-end">
 				<UnderlinedText
 					text="Other contributions and works"
-					subText="websites and apps that I built or was a part of"
+					subText="websites and apps that I built or was a part of building"
 					small
 				/>
 			</div>
@@ -27,6 +27,7 @@ export const ProjectGrid = () => (
 						key={index}
 						title={project.title}
 						description={project.description}
+						chipColor={project.chipColor}
 						borderColor={project.borderColor}
 						chipLabels={project.chipLabels}
 						imgSrc={project.imgSrc}

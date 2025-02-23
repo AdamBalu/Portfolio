@@ -1,7 +1,8 @@
 type Project = {
 	title: string;
 	description: string;
-	borderColor: 'emerald' | 'blue' | 'purple' | 'amber';
+	chipColor: 'emerald' | 'blue' | 'purple' | 'amber';
+	borderColor?: string;
 	imgSrc: string;
 	imgWidth: number;
 	url: string;
@@ -21,7 +22,8 @@ export const projects: Project[] = [
 	{
 		title: 'Detox Rank',
 		description: 'Mobile application for overcoming dopamine addiction',
-		borderColor: 'blue',
+		chipColor: 'blue',
+		borderColor: 'border-blue-200 dark:border-blue-900',
 		chipLabels: [
 			'1k+ Downloads',
 			'4,7 star rating',
@@ -33,29 +35,33 @@ export const projects: Project[] = [
 		url: 'https://play.google.com/store/apps/details?id=com.blaubalu.detoxrank'
 	},
 	{
-		title: 'Fancy Driller',
-		description:
-			'Website built to make preparing for exams easier, prettier and especially more fun',
-		borderColor: 'purple',
-		chipLabels: ['Actively used', 'Handy'],
-		imgSrc: '/static/fancydriller-light.svg',
-		imgWidth: 40,
-		url: 'https://fancy-driller.vercel.app/'
-	},
-	{
 		title: 'SnapShow',
 		description:
 			'Social media platform oriented towards concerts and other musical events',
-		borderColor: 'emerald',
+		chipColor: 'emerald',
+		borderColor: 'border-emerald-200 dark:border-emerald-900',
 		chipLabels: ['Larger codebase', 'Innovative', 'Modern'],
 		imgSrc: '/static/snapshow-light.svg',
 		imgWidth: 45,
 		url: 'https://snap-show.vercel.app/'
 	},
 	{
+		title: 'Fancy Driller',
+		description:
+			'Website built to make preparing for exams easier, prettier and especially more fun',
+		chipColor: 'purple',
+		borderColor: 'border-purple-200 dark:border-purple-900',
+		chipLabels: ['Active users', 'Handy'],
+		imgSrc: '/static/fancydriller-light.svg',
+		imgWidth: 40,
+		url: 'https://fancy-driller.vercel.app/'
+	},
+
+	{
 		title: 'Fotosandrik',
 		description: "A wedding photographer's website",
-		borderColor: 'amber',
+		chipColor: 'amber',
+		borderColor: 'border-amber-100 dark:border-amber-900',
 		chipLabels: ['Simple design'],
 		imgSrc: '/static/rings-light.svg',
 		imgWidth: 40,
