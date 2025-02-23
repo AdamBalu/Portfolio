@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
-import { Sun, Moon } from 'lucide-react';
+import { Moon, Sun } from 'lucide-react';
 import { Button } from '@mui/base';
 
 export const ChangeThemeButton = () => {
@@ -21,7 +21,7 @@ export const ChangeThemeButton = () => {
 		<div>
 			<Button
 				name="change theme"
-				className="fixed left-5 z-30 top-10 px-4 py-2 font-semibold rounded-md"
+				className="px-4 py-2 font-semibold rounded-md"
 				onClick={() => {
 					setTheme(theme === 'light' ? 'dark' : 'light');
 				}}

@@ -1,19 +1,27 @@
 export const UnderlinedText = ({
 	text,
 	subText,
-	small = false
+	small = false,
+	end = false,
+	className = ''
 }: {
 	text: string;
 	subText: string;
 	small?: boolean;
+	end?: boolean;
+	className?: string;
 }) => (
-	<div className="w-max flex flex-col">
+	<div className={`w-max flex flex-col ${end && 'items-end'} ${className}`}>
 		<div className="max-w-max">
-			<h1 className={`${small ? 'text-md' : 'text-2xl'} font-bold`}>{text}</h1>
+			<h1
+				className={`${small ? 'text-md' : 'text-2xl'} font-bold ${end && 'text-right'}`}
+			>
+				{text}
+			</h1>
 			<div
 				className={`p-px bg-gradient-to-r from-primary to-primary-shadow ${small ? 'h-1' : 'h-2'}`}
 			/>
 		</div>
-		<div>{subText}</div>
+		<div className={end ? 'text-right' : ''}>{subText}</div>
 	</div>
 );

@@ -5,19 +5,15 @@ export type NavigationItem = {
 
 export const NavigationItems: NavigationItem[] = [
 	{
-		href: 'homepage',
-		label: 'Home'
+		href: 'home',
+		label: 'H'
 	},
 	{
 		href: 'projects',
-		label: 'Projects'
+		label: 'P'
 	},
 	{
-		href: 'section-skills',
-		label: 'Skills'
-	},
-	{
-		href: 'section-contact',
-		label: 'Contact'
+		href: 'skills',
+		label: 'S'
 	}
 ];

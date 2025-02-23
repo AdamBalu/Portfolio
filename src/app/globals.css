@@ -16,10 +16,8 @@ header {
 }
 
 .menuToggle {
-    display: block;
+    display: flex;
     position: relative;
-    top: 50px;
-    z-index: 31;
     -webkit-user-select: none;
     user-select: none;
 }
@@ -30,10 +28,11 @@ header {
 
 .menuToggle input {
     display: block;
-    width: 40px;
+    width: 50px;
     height: 32px;
     position: absolute;
-    top: -7px;
+    right: -7px;
+    top: 30px;
     cursor: pointer;
     opacity: 0;
     /* hide this */
@@ -45,76 +44,26 @@ header {
     position: relative;
     display: block;
     height: 4px;
-    margin-bottom: 5px;
-    background: #96989f;
+    background: #89B6C3;
     border-radius: 3px;
     z-index: 1;
-    transform-origin: 4px 0;
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
-}
-.menuToggle span:first-child {
-    transform-origin: 0 0;
-}
-.menuToggle span:nth-last-child(2) {
-    transform-origin: 0 100%;
-}
-.menuToggle input:checked ~ span {
-    opacity: 1;
-    transform: rotate(45deg) translate(-2px, -1px);
-    background: #c5c5c5;
-}
-.menuToggle input:checked ~ span:nth-last-child(3) {
-    opacity: 0;
-    transform: rotate(0deg) scale(0.2, 0.2);
-}
-.menuToggle input:checked ~ span:nth-last-child(2) {
-    transform: rotate(-45deg) translate(0, -1px);
 }
 .menuToggle input:checked ~ .menuItem {
+    opacity: 1;
+    visibility: visible;
     transform: none;
 }
 .menuItem {
     position: absolute;
+    top: 70px;
+    opacity: 0;
+    visibility: hidden;
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
     transform-origin: 0 0;
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.5s ease, visibility 0.1s ease;
 }
 .menuItem li {
-    padding: 10px 0;
-    font-size: 18px;
-}
-.menu--right .menuToggle {
-    position: fixed;
-    right: 0;
-}
-.menu--right .menuToggle input {
-    right: 50px;
-}
-.menu--right .menuToggle span {
-    right: 50px;
-}
-.menu--right .menuItem {
-    right: 0;
-    margin: -100px 0 0 0;
-    transform: translate(100%, 0);
-}
-.menu--right .menuItem li button:hover {
-    padding-left: 5px;
-}
-@keyframes text-slide-in {
-    0% {
-        -webkit-transform: translateX(100px);
-        -moz-transform: translateX(100px);
-        -ms-transform: translateX(100px);
-        -o-transform: translateX(100px);
-        transform: translateX(100px);
-    }
-    100% {
-        -webkit-transform: translateY(0);
-        -moz-transform: translateY(0);
-        -ms-transform: translateY(0);
-        -o-transform: translateY(0);
-        transform: translateY(0);
-    }
+    padding: 0;
+    font-size: 12px;
 }

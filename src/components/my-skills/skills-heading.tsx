@@ -7,7 +7,7 @@ export const SkillsHeading = () => (
 		<div className="p-px bg-gradient-to-r from-primary to-[#A53DBF] h-2 w-full" />
 		<div className="flex justify-between items-center w-full">
 			<p>those I love and I’m quite good at</p>
-			<p>and other stuff I learned along the way</p>
+			<p>and which I learned along the way</p>
 		</div>
 	</div>
 );

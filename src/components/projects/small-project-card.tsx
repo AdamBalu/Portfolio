@@ -22,7 +22,7 @@ export const SmallProjectCard = ({
 	chipLabel
 }: SmallProjectCardProps) => (
 	<article className="bg-white dark:bg-dark p-3 rounded-xl border border-primary dark:border-none hover:shadow-md transition-shadow duration-300 flex flex-col group relative h-full justify-between items-center">
-		<h2 className="text-md font-bold text-slate-800 dark:text-slate-200">
+		<h2 className="text-md font-bold text-slate-800 dark:text-slate-200 opacity-0 group-hover:opacity-100 duration-300">
 			{title}
 		</h2>
 		<Image
