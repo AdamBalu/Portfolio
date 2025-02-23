@@ -14,7 +14,7 @@ export const LovedTechnologies = () => (
 					width={64}
 					height={64}
 				/>
-				<div className="absolute bottom-0 right-0 bg-white text-yellow-500 bg-opacity-70 rounded-full p-1 text-xs">
+				<div className="absolute bottom-0 right-0 bg-primary text-yellow-500 bg-opacity-90 rounded-full p-1 text-xs">
 					{'★'.repeat(skill.starCount)}
 				</div>
 				<div className="absolute group-hover:visible invisible transform -translate-x-[calc(50%-30px)] transition duration-200 z-10">

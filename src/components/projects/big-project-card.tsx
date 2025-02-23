@@ -1,7 +1,8 @@
 'use client';
-import { type ReactNode } from 'react';
 import Image from 'next/image';
 import { Button } from '@mui/base';
+
+import { Chip } from '@/components/projects/chip';
 
 type BigProjectCardProps = {
 	title: string;
@@ -9,7 +10,7 @@ type BigProjectCardProps = {
 	imgSrc: string;
 	imgWidth: number;
 	borderColor?: 'emerald' | 'blue' | 'purple' | 'amber';
-	chips: ReactNode;
+	chipLabels: string[];
 };
 
 export const BigProjectCard = ({
@@ -18,9 +19,9 @@ export const BigProjectCard = ({
 	imgSrc,
 	imgWidth,
 	borderColor = 'emerald',
-	chips
+	chipLabels
 }: BigProjectCardProps) => (
-	<article className="bg-white dark:bg-dark p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col group relative">
+	<article className="bg-white dark:bg-dark p-6 rounded-xl border border-primary dark:border-none hover:shadow-md transition-shadow duration-300 flex flex-col group relative">
 		<h2
 			className={`text-2xl font-bold mb-4 text-slate-800 dark:text-slate-200 border-b-2 pb-2 border-${borderColor}-500`}
 		>
@@ -38,13 +39,19 @@ export const BigProjectCard = ({
 
 		<div className="flex-1 flex flex-col">
 			<p className="text-slate-600 dark:text-slate-400 flex-1">{description}</p>
-			<div className="flex gap-2 mt-4 flex-wrap justify-start">{chips}</div>
+			<div className="flex gap-2 mt-4 flex-wrap justify-start">
+				{chipLabels.map(label => (
+					<Chip key={label} color={borderColor}>
+						{label}
+					</Chip>
+				))}
+			</div>
 		</div>
 
 		<Button className="absolute bottom-4 right-4 bg-card dark:bg-secondary z-1 invisible group-hover:visible p-1 rounded-md">
 			<Image
-				src="/static/expand.svg"
-				alt="expand"
+				src="/static/globe.svg"
+				alt="visit"
 				className="h-auto"
 				width={32}
 				height={32}
