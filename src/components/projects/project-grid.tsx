@@ -40,8 +40,6 @@ export const ProjectGrid = () => (
 				))}
 			</div>
 
-			<div>hello comparison</div>
-
 			<div className="col-span-2 grid grid-cols-2 gap-3 h-full">
 				{[0, 1].map(colIndex => (
 					<div key={colIndex} className="grid grid-rows-3 gap-3">
