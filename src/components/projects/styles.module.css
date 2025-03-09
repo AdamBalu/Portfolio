@@ -11,6 +11,12 @@
     display: none;
 }
 
+@media (max-width: 768px) {
+    .cardHoverBorderEffect::before {
+        display: none;
+    }
+}
+
 .cardHoverBorderEffect:hover::before {
     display: block;
 }

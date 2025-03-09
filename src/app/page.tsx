@@ -7,6 +7,7 @@ import { SkillsHeading } from '@/components/my-skills/skills-heading';
 import { SkillGrid } from '@/components/my-skills/skill-grid';
 import { UnderlinedText } from '@/components/common/underlined-text';
 import { Navigation } from '@/components/navigation/navigation';
+import { ProjectGridSmall } from '@/components/projects/project-grid-small';
 
 const Page = async () => (
 	<>
@@ -37,10 +38,18 @@ const Page = async () => (
 					/>
 				</div>
 			</div>
-			<div className="flex justify-center items-center h-[calc(100vh-152px)] mb-[calc(40vh)]">
+			<div className="justify-center items-center h-[calc(100vh-152px)] min-h-[1000px] mb-[calc(40vh)] hidden min-[1280px]:flex">
 				<ProjectGrid />
 			</div>
-			<div id="skills" className="scroll-m-24">
+
+			<div className="flex justify-center items-center min-h-[calc(100vh-152px)] h-max mb-10 min-[1280px]:hidden">
+				<ProjectGridSmall />
+			</div>
+
+			<div
+				id="skills"
+				className="scroll-m-24 mx-8 sm:mx-20 2xl:mx-0 min-h-[1800px]"
+			>
 				<SkillsHeading />
 				<SkillGrid />
 			</div>
