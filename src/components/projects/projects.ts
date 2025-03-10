@@ -82,7 +82,7 @@ export const smallProjects: SmallProject[] = [
 		imgSrc: '/static/old-portfolio-logo.svg',
 		imgWidth: 120,
 		chipLabel: 'Playful design',
-		url: 'https://adambalu.vercel.app'
+		url: 'https://adambalu-colorful.vercel.app'
 	},
 	{
 		title: 'MH Shop',
