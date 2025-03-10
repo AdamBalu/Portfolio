@@ -9,7 +9,7 @@ export const ProjectGridSmall = () => (
 			<UnderlinedText
 				text="My main projects"
 				subText="the ones that I am most invested in and proud of"
-				className="ml-1 sm:ml-1"
+				className="ml-1 sm:ml-1 mt-12 mb-4"
 			/>
 
 			<div className="flex flex-col gap-2 sm:gap-4 mb-6 sm:mb-16 mt-2 sm:mt-6">
@@ -32,7 +32,7 @@ export const ProjectGridSmall = () => (
 				text="Other contributions and works"
 				subText="websites and apps that I built or was a part of building"
 				small
-				className="mx-auto px-2 sm:max-w-none min-[430px]:mx-0"
+				className="px-2 sm:max-w-none mx-0 mt-12 mb-4"
 			/>
 
 			<div className="flex flex-wrap gap-3 justify-center mt-2 sm:mt-8">

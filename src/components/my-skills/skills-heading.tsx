@@ -1,9 +1,9 @@
 export const SkillsHeading = () => (
-	<div className="flex flex-col items-center justify-center">
-		<div className="flex justify-between items-center w-full gap-6">
-			<h1 className="text-md sm:text-2xl font-bold">My favorite tech</h1>
-			<h1 className="text-md sm:text-2xl font-bold text-end">
-				Tech that I also tried out
+	<div className="flex flex-col items-center justify-center mx-4">
+		<div className="flex justify-between items-end w-full gap-6">
+			<h1 className="text-xs sm:text-2xl font-bold mb-1">My favorite tech</h1>
+			<h1 className="text-xs sm:text-2xl font-bold text-end mb-1">
+				Other ones I tried
 			</h1>
 		</div>
 		<div className="p-px bg-gradient-to-r from-primary to-[#A53DBF] h-2 w-full" />

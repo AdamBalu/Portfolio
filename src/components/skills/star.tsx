@@ -6,6 +6,6 @@ export const Star = ({ className }: { className?: string }) => (
 		alt="Star"
 		width={32}
 		height={32}
-		className={`w-4 h-4 sm:w-8 sm:h-8 ${className}`}
+		className={`w-4 h-4 xl:w-8 xl:h-8 ${className}`}
 	/>
 );

@@ -46,12 +46,11 @@ const Page = async () => (
 				<ProjectGridSmall />
 			</div>
 
-			<div
-				id="skills"
-				className="scroll-m-24 mx-8 sm:mx-20 2xl:mx-0 mb-12 sm:mb-64"
-			>
+			<div id="skills" className="scroll-m-24 2xl:mx-0 mb-12 sm:mb-64">
 				<SkillsHeading />
-				<SkillGrid />
+				<div className="mx-8 sm:mx-10 md:mx-8 xl:mx-20 2xl:mx-0 mt-2 sm:mt-6">
+					<SkillGrid />
+				</div>
 			</div>
 		</main>
 		<Footer />
