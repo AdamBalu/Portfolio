@@ -31,7 +31,7 @@ export const BigProjectCard = ({
 		<Card
 			elevation={0}
 			onClick={() => open(url)}
-			className="transition-transform duration-500 bg-white hover:bg-card-hovered dark:bg-dark dark:hover:bg-dark-hovered cursor-pointer p-3 sm:p-6 border border-primary hover:border-card-hovered dark:border-none flex flex-col group relative h-full w-full scale-[0.99] hover:scale-1 !rounded-2xl"
+			className="transition-transform duration-500 !bg-primary-lightest hover:!bg-primary-lighter dark:!bg-dark dark:hover:!bg-dark-hovered cursor-pointer p-3 sm:p-6 border border-primary hover:border-card-hovered dark:border-none flex flex-col group relative h-full w-full scale-[0.99] hover:scale-1 !rounded-2xl"
 		>
 			<h2
 				className={`text-2xl font-bold mb-1 sm:mb-4 text-slate-800 dark:text-slate-200 border-b-2 pb-1 sm:pb-2 ${borderColor}`}

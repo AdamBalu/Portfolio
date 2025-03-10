@@ -26,9 +26,9 @@ export const SmallProjectCard = ({
 		<Card
 			elevation={0}
 			onClick={() => open(url)}
-			className="bg-white dark:bg-dark cursor-pointer hover:bg-card-hovered hover:border-none dark:hover:bg-dark-hovered p-2 !rounded-2xl border border-primary dark:border-none duration-300 flex flex-col group relative h-full justify-between items-center w-full scale-[0.98] sm:scale-[0.99] hover:scale-1"
+			className="!bg-primary-lightest dark:!bg-dark cursor-pointer hover:!bg-primary-lighter hover:border-none dark:hover:!bg-dark-hovered p-2 !rounded-2xl border border-primary dark:border-none duration-300 flex flex-col group relative h-full justify-between items-center w-full scale-[0.98] hover:scale-1"
 		>
-			<h2 className="absolute block text-xs font-bold text-slate-400 sm:opacity-0 duration-300 group-hover:opacity-100 dark:text-slate-200 md:text-base sm:!text-slate-800">
+			<h2 className="absolute block text-xs top-2 md:top-4 font-bold sm:opacity-0 group-hover:opacity-100 md:text-base text-slate-500">
 				{title}
 			</h2>
 			<Image
@@ -40,7 +40,7 @@ export const SmallProjectCard = ({
 				className="flex h-full pt-6 transition-all duration-200 sm:pt-6 justify-center items-center object-contain"
 			/>
 			<div className="self-start">
-				<div className="hidden md:flex gap-2 mt-0 xs:mt-2 flex-wrap justify-start opacity-0 group-hover:opacity-100 duration-300">
+				<div className="hidden md:flex gap-2 mt-0 xs:mt-2 flex-wrap justify-start opacity-0 group-hover:opacity-100">
 					<Chip color={borderColor}>{chipLabel}</Chip>
 				</div>
 			</div>
