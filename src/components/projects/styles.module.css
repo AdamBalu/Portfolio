@@ -1,8 +1,8 @@
 .cardHoverBorderEffect::before {
     content: "";
     position: absolute;
-    width: 80%;
-    height: 150%;
+    width: 140%;
+    height: 80%;
     background: #B5E3F1;
     background: -webkit-linear-gradient(to right, #A53DBF, #7bb3c4, #B5E3F1);
     background: linear-gradient(to right, #A53DBF, #7bb3c4, #B5E3F1);
@@ -14,6 +14,13 @@
 @media (max-width: 768px) {
     .cardHoverBorderEffect::before {
         display: none;
+    }
+}
+
+@media (min-width: 1280px) {
+    .cardHoverBorderEffect::before {
+        width: 80%;
+        height: 150%;
     }
 }
 

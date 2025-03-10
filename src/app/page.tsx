@@ -12,7 +12,7 @@ import { ProjectGridSmall } from '@/components/projects/project-grid-small';
 const Page = async () => (
 	<>
 		<Header />
-		<div className="h-10" />
+		<div className="h-2 sm:h-10" />
 		<Navigation />
 		<main
 			className="flex flex-col flex-grow mt-10 xl:mt-0 scroll-m-32"
@@ -20,7 +20,7 @@ const Page = async () => (
 		>
 			<div
 				id="hero"
-				className="max-w-[1100px] w-full mx-auto flex justify-end relative"
+				className="max-w-[1100px] w-full sm:w-[75%] xl:w-full mx-auto flex justify-end relative mt-6 sm:mt-0 px-2 sm:px-0"
 			>
 				<div className="flex flex-row items-center gap-4">
 					<UnderlinedText
@@ -48,7 +48,7 @@ const Page = async () => (
 
 			<div
 				id="skills"
-				className="scroll-m-24 mx-8 sm:mx-20 2xl:mx-0 min-h-[1800px]"
+				className="scroll-m-24 mx-8 sm:mx-20 2xl:mx-0 mb-12 sm:mb-64"
 			>
 				<SkillsHeading />
 				<SkillGrid />

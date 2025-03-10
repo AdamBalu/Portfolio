@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -21,6 +22,7 @@ header {
     -webkit-user-select: none;
     user-select: none;
 }
+
 .menuToggle button {
     text-decoration: none;
     transition: all 0.3s ease;
@@ -28,18 +30,19 @@ header {
 
 .menuToggle input {
     display: block;
-    width: 50px;
-    height: 32px;
+    width: 56px;
+    height: 56px;
     position: absolute;
-    right: -7px;
-    top: 40px;
+    right: -3px;
+    top: 0;
     cursor: pointer;
-    opacity: 0;
     /* hide this */
-    z-index: 2;
+    opacity: 0;
     /* and place it over the hamburger */
+    z-index: 2;
     -webkit-touch-callout: none;
 }
+
 .menuToggle .burger-line {
     position: relative;
     display: block;
@@ -48,14 +51,16 @@ header {
     border-radius: 3px;
     z-index: 1;
 }
+
 .menuToggle input:checked ~ .menuItem {
     opacity: 1;
     visibility: visible;
     transform: none;
 }
+
 .menuItem {
     position: absolute;
-    top: 90px;
+    top: 50px;
     opacity: 0;
     visibility: hidden;
     list-style-type: none;
@@ -63,7 +68,33 @@ header {
     transform-origin: 0 0;
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.5s ease, visibility 0.1s ease;
 }
+
 .menuItem li {
     padding: 0;
     font-size: 12px;
+    border-radius: 6px;
+    min-height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 640px) {
+    .menuItem {
+        top: 127px;
+    }
+
+    .menuToggle input {
+        top: 63px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .menuItem {
+        top: 90px;
+    }
+
+    .menuToggle input {
+        top: 20px;
+    }
 }

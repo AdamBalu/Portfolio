@@ -49,27 +49,34 @@ export const Navigation = () => {
 	}, []);
 
 	return (
-		<nav className="sticky top-10 w-full" role="navigation">
-			<div className="menuToggle flex flex-col items-end relative">
+		<nav className="sticky top-4 sm:top-10 w-full z-10" role="navigation">
+			<div className="menuToggle flex flex-col items-end relative mr-4 sm:mr-6 xl:mr-[80px]">
 				<input type="checkbox" id="navbar-checkbox" className="absolute" />
 				<label htmlFor="navbar-checkbox" className="hidden">
 					no label for you
 				</label>
-				<span className="w-[17px] sm:w-[33px] absolute top-[50px] burger-line" />
-				<span className="w-[17px] sm:w-[33px] absolute top-[55px] burger-line" />
-				<span className="w-[17px] sm:w-[33px] absolute top-[60px] burger-line" />
-				<ul className="menuItem right-[-9px]">
+				<div className="bg-card sm:min-w-12 dark:bg-dark dark:border border-primary-shadow rounded-md absolute top-0 sm:top-[63px] xl:top-[24px] w-10 h-10 sm:w-[56px] sm:h-[56px] flex items-center justify-center">
+					<div>
+						<span className="w-[25px] sm:w-[33px] mt-0 burger-line" />
+						<span className="w-[25px] sm:w-[33px] mt-0.5 sm:mt-1.5 burger-line" />
+						<span className="w-[25px] sm:w-[33px] mt-0.5 sm:mt-1.5 burger-line" />
+					</div>
+				</div>
+				<ul className="menuItem right-0">
 					{NavigationItems.map((item, _) => (
-						<li key={item.href} className="mb-2">
+						<li
+							key={item.href}
+							className="mb-2 bg-card dark:bg-dark dark:border border-primary-shadow"
+						>
 							<button
 								onClick={() => scrollToSection(item.href)}
-								className="uppercase rounded-md border border-primary dark:border-secondary w-14 h-14 hover:text-primary hover:dark:text-primary-dark p-1 flex items-center justify-center"
+								className="uppercase dark:border-secondary w-14 h-14 hover:text-primary hover:dark:text-primary-dark p-1 flex items-center justify-center"
 							>
 								<span className="material-symbols-outlined">{item.imgSrc}</span>
 							</button>
 						</li>
 					))}
-					<li>
+					<li className="bg-card dark:bg-dark dark:border border-primary-shadow">
 						<ChangeThemeButton />
 					</li>
 				</ul>

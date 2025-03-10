@@ -31,13 +31,13 @@ export const BigProjectCard = ({
 		<Card
 			elevation={0}
 			onClick={() => open(url)}
-			className="transition-transform duration-500 bg-white hover:bg-card-hovered dark:bg-dark dark:hover:bg-dark-hovered cursor-pointer p-6 border border-primary hover:border-card-hovered dark:border-none flex flex-col group relative h-full w-full scale-[0.99] hover:scale-1 !rounded-2xl"
+			className="transition-transform duration-500 bg-white hover:bg-card-hovered dark:bg-dark dark:hover:bg-dark-hovered cursor-pointer p-3 sm:p-6 border border-primary hover:border-card-hovered dark:border-none flex flex-col group relative h-full w-full scale-[0.99] hover:scale-1 !rounded-2xl"
 		>
 			<h2
-				className={`text-2xl font-bold mb-4 text-slate-800 dark:text-slate-200 border-b-2 pb-2 ${borderColor}`}
+				className={`text-2xl font-bold mb-1 sm:mb-4 text-slate-800 dark:text-slate-200 border-b-2 pb-1 sm:pb-2 ${borderColor}`}
 			>
 				<span className="duration-200 flex flex-row justify-between items-center">
-					{title}
+					<h3 className="text-xl sm:text-2xl">{title}</h3>
 					<Image
 						src={imgSrc}
 						alt={title}
@@ -49,7 +49,7 @@ export const BigProjectCard = ({
 			</h2>
 
 			<div className="flex-1 flex flex-col">
-				<p className="text-slate-600 dark:text-slate-400 flex-1">
+				<p className="text-slate-600 dark:text-slate-400 flex-1 text-xs sm:text-base">
 					{description}
 				</p>
 				<div className="flex gap-2 mt-4 flex-wrap justify-start">
