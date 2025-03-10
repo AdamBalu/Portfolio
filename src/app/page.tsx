@@ -35,7 +35,7 @@ const Page = async () => (
 							alt=""
 							width={78}
 							height={20}
-							className="rounded-full ml-1 mt-[-12px] opacity-90"
+							className="rounded-full ml-1 mt-[-12px]"
 						/>
 					</div>
 				</div>
