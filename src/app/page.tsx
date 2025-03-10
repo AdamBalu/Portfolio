@@ -8,6 +8,12 @@ import { SkillGrid } from '@/components/my-skills/skill-grid';
 import { UnderlinedText } from '@/components/common/underlined-text';
 import { Navigation } from '@/components/navigation/navigation';
 import { ProjectGridSmall } from '@/components/projects/project-grid-small';
+import { SocialIcon } from '@/components/header/social-icon';
+import {
+	GithubFilled,
+	LinkedinFilled,
+	MailFilled
+} from '@/components/socials/linkedin';
 
 const Page = async () => (
 	<>
@@ -20,15 +26,30 @@ const Page = async () => (
 		>
 			<div
 				id="hero"
-				className="max-w-[1100px] w-full sm:w-[75%] xl:w-full mx-auto flex justify-end relative mt-6 sm:mt-0 px-2 sm:px-0"
+				className="max-w-[1100px] w-full sm:w-[75%] xl:w-full mx-auto flex flex-col items-end relative mt-6 sm:mt-0 px-2 sm:px-0"
 			>
-				<div className="flex flex-row items-center gap-4">
-					<UnderlinedText
-						text="Hi, I'm Adam"
-						subText="and I like designing and coding stuff"
-						className="max-w-52"
-						end
-					/>
+				<div className="flex flex-row items-center gap-4 mt-6 sm:mt-2">
+					<div className="flex flex-col items-end gap-2">
+						<UnderlinedText
+							text="Hi, I'm Adam"
+							subText="and I like designing and coding stuff"
+							end
+						/>
+						<div className="flex flex-row gap-2 items-center justify-end mr-[-10px]">
+							<SocialIcon
+								icon={<GithubFilled />}
+								link="https://github.com/adambalu"
+							/>
+							<SocialIcon
+								icon={<LinkedinFilled />}
+								link="https://linkedin.com/in/adambalu/"
+							/>
+							<SocialIcon
+								icon={<MailFilled />}
+								link="mailto:blaubalu.dev@gmail.com"
+							/>
+						</div>
+					</div>
 					<div className="flex flex-row items-center gap-2 w-24 h-24 rounded-full border border-primary-shadow">
 						<Image
 							src="/static/profilepic.png"

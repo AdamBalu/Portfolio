@@ -40,7 +40,7 @@ export const projects: Project[] = [
 			'Social media platform oriented towards concerts and other musical events',
 		chipColor: 'emerald',
 		borderColor: 'border-emerald-200 dark:border-emerald-900',
-		chipLabels: ['Larger codebase', 'Innovative', 'Modern'],
+		chipLabels: ['Innovative', 'Modern', 'Fullstack', 'Team project'],
 		imgSrc: '/static/snapshow-light.svg',
 		imgWidth: 45,
 		url: 'https://snap-show.vercel.app/'
@@ -51,7 +51,7 @@ export const projects: Project[] = [
 			'Website built to make preparing for exams easier, prettier and especially more fun',
 		chipColor: 'purple',
 		borderColor: 'border-purple-200 dark:border-purple-900',
-		chipLabels: ['Active users', 'Handy'],
+		chipLabels: ['Actively used', 'Handy'],
 		imgSrc: '/static/fancydriller-light.svg',
 		imgWidth: 40,
 		url: 'https://fancy-driller.vercel.app/'
