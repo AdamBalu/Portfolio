@@ -29,13 +29,15 @@ const Page = async () => (
 						className="max-w-52"
 						end
 					/>
-					<Image
-						src="/static/github.svg"
-						alt=""
-						width={100}
-						height={100}
-						className="rounded-full border border-primary-shadow"
-					/>
+					<div className="flex flex-row items-center gap-2 w-24 h-24 rounded-full border border-primary-shadow">
+						<Image
+							src="/static/profilepic.png"
+							alt=""
+							width={78}
+							height={20}
+							className="rounded-full ml-1 mt-[-12px] opacity-90"
+						/>
+					</div>
 				</div>
 			</div>
 			<div className="justify-center items-center h-[calc(100vh-152px)] min-h-[1000px] mb-[calc(40vh)] hidden min-[1280px]:flex">
