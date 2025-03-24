@@ -22,7 +22,7 @@ export const SmallProjectCard = ({
 	borderColor = 'white',
 	chipLabel
 }: SmallProjectCardProps) => (
-	<Box className="rounded-2xl hover:shadow-2xl dark:hover:shadow-[#192C65]">
+	<Box className="rounded-2xl hover:shadow-2xl dark:hover:shadow-[#192C65] h-full">
 		<Box className={styles.cardHoverBorderEffect}>
 			<Card
 				elevation={0}
