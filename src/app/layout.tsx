@@ -64,7 +64,7 @@ const RootLayout = ({
 
 		<body
 			id="bg-myown"
-			className={`min-h-screen flex flex-col ${raleway.className} text-slate-700 dark:text-slate-200 transition-color duration-500 ease-in-out bg-[url(/static/cooked_bg_white.svg)]  dark:bg-[url(/static/cooked_bg.svg)] dark:from-secondary-lighter dark:to-custom-purple-dark`}
+			className={`min-h-screen flex flex-col ${raleway.className} text-slate-700 dark:text-slate-200 transition-color duration-500 ease-in-out bg-[url(/static/cooked_bg_white.svg)]  dark:bg-[url(/static/cooked_bg_new.svg)] dark:from-secondary-lighter dark:to-custom-purple-dark`}
 		>
 			<div className="transition-background duration-700 ease-in-out">
 				<Providers>

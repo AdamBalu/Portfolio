@@ -27,13 +27,13 @@ export const BigProjectCard = ({
 	chipColor = 'emerald',
 	chipLabels
 }: BigProjectCardProps) => (
-	<Box className="rounded-2xl hover:shadow-2xl dark:hover:shadow-[#192C65]">
+	<Box className="rounded-2xl transition-all duration-100 dark:hover:shadow-[0_0_15px_15px_#192C65] dark:border border-dark-card-border hover:border-transparent">
 		<Box className={styles.cardHoverBorderEffect}>
 			<Card
 				elevation={0}
 				onClick={() => open(url)}
-				className="transition-transform duration-500 !bg-primary-lightest hover:!bg-primary-lighter dark:bg-gradient-to-b dark:!from-dark dark:!to-darker
-			 dark:hover:!bg-dark-hovered cursor-pointer p-3 sm:p-6 border border-primary hover:border-card-hovered dark:border-none flex flex-col group relative
+				className="transition-transform duration-500 !bg-primary-lightest hover:!bg-primary-lighter dark:bg-gradient-to-b dark:!from-dark-card dark:!to-dark-card-dark
+				 cursor-pointer p-3 sm:p-6 border border-primary hover:border-card-hovered dark:border-none flex flex-col group relative
 			  h-full w-full scale-[0.99] hover:scale-1 !rounded-2xl"
 			>
 				<h2
