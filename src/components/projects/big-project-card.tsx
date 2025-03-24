@@ -27,52 +27,56 @@ export const BigProjectCard = ({
 	chipColor = 'emerald',
 	chipLabels
 }: BigProjectCardProps) => (
-	<Box className={styles.cardHoverBorderEffect}>
-		<Card
-			elevation={0}
-			onClick={() => open(url)}
-			className="transition-transform duration-500 !bg-primary-lightest hover:!bg-primary-lighter dark:bg-gradient-to-b dark:!from-dark dark:!to-darker dark:hover:!bg-dark-hovered cursor-pointer p-3 sm:p-6 border border-primary hover:border-card-hovered dark:border-none flex flex-col group relative h-full w-full scale-[0.99] hover:scale-1 !rounded-2xl"
-		>
-			<h2
-				className={`text-2xl font-bold mb-1 sm:mb-4 text-slate-800 dark:text-slate-200 border-b-2 pb-1 sm:pb-2 ${borderColor}`}
+	<Box className="rounded-2xl hover:shadow-2xl dark:hover:shadow-[#192C65]">
+		<Box className={styles.cardHoverBorderEffect}>
+			<Card
+				elevation={0}
+				onClick={() => open(url)}
+				className="transition-transform duration-500 !bg-primary-lightest hover:!bg-primary-lighter dark:bg-gradient-to-b dark:!from-dark dark:!to-darker
+			 dark:hover:!bg-dark-hovered cursor-pointer p-3 sm:p-6 border border-primary hover:border-card-hovered dark:border-none flex flex-col group relative
+			  h-full w-full scale-[0.99] hover:scale-1 !rounded-2xl"
 			>
-				<span className="duration-200 flex flex-row justify-between items-center">
-					<h3 className="text-xl sm:text-2xl">{title}</h3>
-					<Image
-						src={imgSrc}
-						alt={title}
-						width={imgWidth}
-						height={30}
-						sizes="100vw"
-					/>
-				</span>
-			</h2>
+				<h2
+					className={`text-2xl font-bold mb-1 sm:mb-4 text-slate-800 dark:text-slate-200 border-b-2 pb-1 sm:pb-2 ${borderColor}`}
+				>
+					<span className="duration-200 flex flex-row justify-between items-center">
+						<h3 className="text-xl sm:text-2xl">{title}</h3>
+						<Image
+							src={imgSrc}
+							alt={title}
+							width={imgWidth}
+							height={30}
+							sizes="100vw"
+						/>
+					</span>
+				</h2>
 
-			<div className="flex-1 flex flex-col">
-				<p className="text-slate-600 dark:text-slate-400 flex-1 text-xs sm:text-base">
-					{description}
-				</p>
-				<div className="flex gap-2 mt-4 flex-wrap justify-start">
-					{chipLabels.map(label => (
-						<Chip key={label} color={chipColor}>
-							{label}
-						</Chip>
-					))}
+				<div className="flex-1 flex flex-col">
+					<p className="text-slate-600 dark:text-slate-400 flex-1 text-xs sm:text-base">
+						{description}
+					</p>
+					<div className="flex gap-2 mt-4 flex-wrap justify-start">
+						{chipLabels.map(label => (
+							<Chip key={label} color={chipColor}>
+								{label}
+							</Chip>
+						))}
+					</div>
 				</div>
-			</div>
 
-			{/*<Button*/}
-			{/*	className="absolute bottom-4 right-4 bg-card dark:bg-secondary z-1 opacity-0 group-hover:opacity-100 duration-100 p-1 rounded-md"*/}
-			{/*	onClick={() => open(url)}*/}
-			{/*>*/}
-			{/*	<Image*/}
-			{/*		src="/static/globe.svg"*/}
-			{/*		alt="visit"*/}
-			{/*		className="h-auto"*/}
-			{/*		width={32}*/}
-			{/*		height={32}*/}
-			{/*	/>*/}
-			{/*</Button>*/}
-		</Card>
+				{/*<Button*/}
+				{/*	className="absolute bottom-4 right-4 bg-card dark:bg-secondary z-1 opacity-0 group-hover:opacity-100 duration-100 p-1 rounded-md"*/}
+				{/*	onClick={() => open(url)}*/}
+				{/*>*/}
+				{/*	<Image*/}
+				{/*		src="/static/globe.svg"*/}
+				{/*		alt="visit"*/}
+				{/*		className="h-auto"*/}
+				{/*		width={32}*/}
+				{/*		height={32}*/}
+				{/*	/>*/}
+				{/*</Button>*/}
+			</Card>
+		</Box>
 	</Box>
 );

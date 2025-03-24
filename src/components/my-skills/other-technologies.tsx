@@ -6,7 +6,10 @@ import { SkillCard } from '@/components/skills/skill-card';
 export const OtherTechnologies = () => (
 	<div className="flex flex-row flex-wrap gap-8 justify-end">
 		{otherTechnologies.map(skill => (
-			<div key={skill.heading} className="relative group">
+			<div
+				key={skill.heading}
+				className="relative group hover:shadow-2xl hover:shadow-blue-500 hover:bg-primary/10 rounded-xl"
+			>
 				<Image
 					key={skill.heading}
 					src={skill.iconSrc}
