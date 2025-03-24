@@ -26,7 +26,7 @@ export const SmallProjectCard = ({
 		<Card
 			elevation={0}
 			onClick={() => open(url)}
-			className="!bg-primary-lightest dark:!bg-dark cursor-pointer hover:!bg-primary-lighter hover:border-none dark:hover:!bg-dark-hovered p-2 !rounded-2xl border border-primary dark:border-none duration-300 flex flex-col group relative h-full justify-between items-center w-full scale-[0.98] hover:scale-1"
+			className="!bg-primary-lightest dark:bg-gradient-to-b dark:!from-dark dark:!to-darker cursor-pointer hover:!bg-primary-lighter hover:border-none dark:hover:!bg-dark-hovered p-2 !rounded-2xl border border-primary dark:border-none duration-300 flex flex-col group relative h-full justify-between items-center w-full scale-[0.98] hover:scale-1"
 		>
 			<h2 className="absolute block text-xs top-2 md:top-4 font-bold sm:opacity-0 group-hover:opacity-100 md:text-base text-slate-500">
 				{title}

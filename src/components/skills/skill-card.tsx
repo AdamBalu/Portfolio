@@ -21,7 +21,7 @@ export const SkillCard = ({
 	<div className="group relative">
 		<div className="h-48 xl:h-64 group-hover:transition-height group-hover:ease-in-out group-hover:duration-500">
 			<div className="relative mb-5 mt-4 rounded-2xl h-26 group-hover:h-48 xl:group-hover:h-60 group-hover:transition-height group-hover:duration-700">
-				<div className="h-[9rem] w-[9rem] xl:h-[15rem] xl:w-[15rem] group-hover:h-52 xl:group-hover:h-64 transition-height ease-in-out duration-300 bg-primary-lightest dark:bg-dark border-[1px] group-hover:shadow-2xl border-slate-100 dark:border-secondary shadow-xl rounded-2xl relative z-10">
+				<div className="h-[9rem] w-[9rem] xl:h-[15rem] xl:w-[15rem] group-hover:h-52 xl:group-hover:h-64 transition-height ease-in-out duration-300 bg-primary-lightest dark:bg-gradient-to-b dark:from-dark dark:to-darker  border-[1px] group-hover:shadow-2xl border-slate-100 dark:border-secondary shadow-xl rounded-2xl relative z-10">
 					<div
 						className={`flex h-full flex-col items-center ${!hasHeading && 'pt-6'} group-hover:pt-6 xl:pt-0 gap-4 xl:gap-2 py-1`}
 					>
