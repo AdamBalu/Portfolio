@@ -47,7 +47,7 @@ export const TimelinePoint = ({
 				className={`${isLeft ? 'timeline-end' : 'timeline-start'} mb-4 md:mb-48 hidden md:block !self-start`}
 			>
 				<div
-					className={`p-4 ${isLeft ? 'ml-6' : 'mr-6'} dark:group-hover:shadow-xl dark:group-hover:shadow-[0_0_15px_15px_#192C65] rounded-xl transition-all duration-300 ease-in-out mt-[-20%]`}
+					className={`p-4 ${isLeft ? 'ml-6' : 'mr-6'} group-hover:shadow-[0_0_25px_25px_#fff] dark:group-hover:shadow-[0_0_15px_15px_#192C65] rounded-xl transition-all duration-300 ease-in-out mt-[-20%]`}
 				>
 					{image}
 				</div>
