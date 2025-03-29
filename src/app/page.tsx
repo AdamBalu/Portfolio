@@ -72,12 +72,15 @@ const Page = async () => (
 
 			<div
 				id="timeline"
-				className="scroll-m-16 2xl:mx-0 mb-12 min-h-dvh mx-4 mt-[150px] mb-[200px] sm:mb-[600px]"
+				className="scroll-m-16 md:scroll-m-32 2xl:mx-0 mb-12 min-h-dvh mx-4 mt-[150px] mb-[200px] sm:mb-[600px]"
 			>
 				<MyTimeline />
 			</div>
 
-			<div id="skills" className="scroll-m-16 2xl:mx-0 mb-12 sm:mb-64">
+			<div
+				id="skills"
+				className="scroll-m-16 md:scroll-m-32 2xl:mx-0 mb-12 sm:mb-64"
+			>
 				<SkillsHeading />
 				<div className="mx-8 sm:mx-10 md:mx-8 xl:mx-20 2xl:mx-0 mt-2 sm:mt-6">
 					<SkillGrid />

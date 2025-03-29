@@ -8,10 +8,10 @@ export const NavigationItems: NavigationItem[] = [
 		href: 'home',
 		imgSrc: 'cottage'
 	},
-	// {
-	// 	href: 'projects',
-	// 	imgSrc: '/static/project.svg'
-	// },
+	{
+		href: 'timeline',
+		imgSrc: 'timeline'
+	},
 	{
 		href: 'skills',
 		imgSrc: 'data_object'

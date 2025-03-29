@@ -55,7 +55,7 @@ export const Navigation = () => {
 				<label htmlFor="navbar-checkbox" className="hidden">
 					no label for you
 				</label>
-				<div className="bg-white sm:min-w-12 dark:bg-dark-card dark:border border-dark-card-border rounded-md absolute top-0 sm:top-[63px] xl:top-[24px] w-10 h-10 sm:w-[56px] sm:h-[56px] flex items-center justify-center">
+				<div className="bg-primary-lighter sm:min-w-12 dark:bg-dark-card dark:border border-dark-card-border rounded-md absolute top-0 sm:top-[63px] xl:top-[24px] w-10 h-10 sm:w-[56px] sm:h-[56px] flex items-center justify-center">
 					<div>
 						<span className="w-[25px] sm:w-[33px] mt-0 burger-line" />
 						<span className="w-[25px] sm:w-[33px] mt-0.5 sm:mt-1.5 burger-line" />
