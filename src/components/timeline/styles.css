@@ -1,0 +1,10 @@
+.timeline .connector {
+    width: 8px;
+    background: rgb(181,227,241);
+    background: linear-gradient(180deg, rgba(181,227,241,1) 0%, rgba(210,131,230,1) 58%, rgba(181,227,241,1) 100%);
+}
+
+.timeline hr {
+    width: 8px !important;
+    background: rgb(181,227,241);
+}

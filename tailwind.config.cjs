@@ -25,7 +25,8 @@ module.exports = {
                 'primary-dark': '#B5E3F1',
                 'primary-shadow-dark': '#B5E3F1',
                 'card': '#F3FBFE',
-                'card-hovered': '#f7fdff'
+                'card-hovered': '#f7fdff',
+                'border': '#89B6C3',
             },
             transitionProperty: {
                 width: 'width',
