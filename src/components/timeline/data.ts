@@ -51,7 +51,7 @@ export const timelineData = [
 		variant: 'left' as const,
 		date: '2024-now',
 		heading: 'Working for Betrian',
-		text: 'Finally, I got a job at Betrian. I am working as a software developer, mainly on the frontend side. I am using primarily React, Redux and TypeScript. Besides that, I also enjoy coding my own projects. I enjoy learning new technologies and sharpening my skillset.',
+		text: 'Finally, I got a job at Betrian. I am working as a software developer, mainly on the frontend side. I am using primarily React with TypeScript. Besides that, I also enjoy coding my own projects. I enjoy learning new technologies and sharpening my skillset.',
 		imageSrc: '/static/betrian.png',
 		imageAlt: 'betrian',
 		imageWidth: 150,
