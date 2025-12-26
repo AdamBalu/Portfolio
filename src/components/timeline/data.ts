@@ -57,6 +57,18 @@ export const timelineData = [
 		imageWidth: 150,
 		imageHeight: 100,
 		edgeTimeline: false,
+		endTimeline: false
+	},
+	{
+		variant: 'right' as const,
+		date: '2025-now',
+		heading: 'Working for DevCors',
+		text: "As my career is progressing, I'm looking for ways to improve. And so I landed up in DevCors where I focus on frontend development, exploring modern technologies and AI tools.",
+		imageSrc: '/static/devcors.jpg',
+		imageAlt: 'devcors',
+		imageWidth: 150,
+		imageHeight: 100,
+		edgeTimeline: false,
 		endTimeline: true
 	}
 ];

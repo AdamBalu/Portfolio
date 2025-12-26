@@ -25,8 +25,8 @@ export const projects: Project[] = [
 		chipColor: 'blue',
 		borderColor: 'border-blue-200 dark:border-blue-900',
 		chipLabels: [
-			'1k+ Downloads',
-			'4,7 star rating',
+			'2k+ Downloads',
+			'4,8 star rating',
 			'200+ active devices',
 			'Maintained'
 		],
@@ -71,11 +71,11 @@ export const projects: Project[] = [
 
 export const smallProjects: SmallProject[] = [
 	{
-		title: 'Visitjakub Brno',
-		imgSrc: '/static/visitjakub-logo.svg',
-		imgWidth: 100,
-		chipLabel: 'Tourist attraction',
-		url: 'https://visitjakub.cz/'
+		title: 'MH Shop',
+		imgSrc: '/static/mh-store-logo.svg',
+		imgWidth: 120,
+		chipLabel: 'Online store',
+		url: 'https://mh-shop.vercel.app/'
 	},
 	{
 		title: 'My old portfolio',
@@ -85,11 +85,11 @@ export const smallProjects: SmallProject[] = [
 		url: 'https://adambalu-colorful.vercel.app'
 	},
 	{
-		title: 'MH Shop',
-		imgSrc: '/static/mh-store-logo.svg',
-		imgWidth: 120,
-		chipLabel: 'Online store',
-		url: 'https://mh-shop.vercel.app/'
+		title: 'Visitjakub Brno',
+		imgSrc: '/static/visitjakub-logo.svg',
+		imgWidth: 100,
+		chipLabel: 'Tourist attraction',
+		url: 'https://visitjakub.cz/'
 	},
 	{
 		title: 'NavData',
@@ -98,7 +98,6 @@ export const smallProjects: SmallProject[] = [
 		chipLabel: 'Train navigation',
 		url: 'https://navsuite.cz/en/navdata-en/'
 	},
-
 	{
 		title: 'BookHub',
 		imgSrc: '/static/bookhub-logo.svg',

@@ -1,10 +1,21 @@
 .timeline .connector {
     width: 8px;
-    background: rgb(181,227,241);
-    background: linear-gradient(180deg, rgba(181,227,241,1) 0%, rgba(210,131,230,1) 58%, rgba(181,227,241,1) 100%);
+    color: red;
+    background: red;
+    border-radius: 999px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background: rgb(181, 227, 241);
+    background: linear-gradient(180deg, rgba(181, 227, 241, 1) 0%, rgba(210, 131, 230, 1) 58%, rgba(181, 227, 241, 1) 100%);
 }
 
 .timeline hr {
     width: 8px !important;
-    background: rgb(181,227,241);
+    background: rgb(181, 227, 241);
+}
+
+.dot-connector {
+    border-radius: 999px !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
 }

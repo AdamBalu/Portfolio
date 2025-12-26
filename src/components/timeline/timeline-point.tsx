@@ -25,7 +25,7 @@ export const TimelinePoint = ({
 
 	return (
 		<li className="group">
-			{!edgeTimeline && <hr />}
+			{!edgeTimeline && <hr className="dot-connector" />}
 			<div className="timeline-middle">{icon}</div>
 			<div
 				className={`timeline-start md:mb-48 !ml-4 ${isLeft ? 'md:ml-0 mr-0 md:mr-6 md:text-end' : 'md:ml-6'} mt-2 w-full md:w-auto pr-6 pt-2 ${!isLeft && 'md:timeline-end'}`}
