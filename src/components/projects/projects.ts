@@ -59,7 +59,8 @@ export const projects: Project[] = [
 
 	{
 		title: 'Chore calendar',
-		description: "A calendar app that simplifies creating and managing daily tasks",
+		description:
+			'A calendar app that simplifies creating and managing daily tasks',
 		chipColor: 'amber',
 		borderColor: 'border-amber-100 dark:border-amber-900',
 		chipLabels: ['Straightforward', 'Fun to use'],
