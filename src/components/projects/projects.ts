@@ -58,14 +58,14 @@ export const projects: Project[] = [
 	},
 
 	{
-		title: 'Fotosandrik',
-		description: "A wedding photographer's website",
+		title: 'Chore calendar',
+		description: "A calendar app that simplifies creating and managing daily tasks",
 		chipColor: 'amber',
 		borderColor: 'border-amber-100 dark:border-amber-900',
-		chipLabels: ['Simple design'],
-		imgSrc: '/static/rings-light.svg',
+		chipLabels: ['Straightforward', 'Fun to use'],
+		imgSrc: '/static/chore-calendar-logo.png',
 		imgWidth: 40,
-		url: 'https://fotosandrik.sk/'
+		url: 'https://chorecalendar.vercel.app/'
 	}
 ];
 
@@ -83,6 +83,13 @@ export const smallProjects: SmallProject[] = [
 		imgWidth: 120,
 		chipLabel: 'Playful design',
 		url: 'https://adambalu-colorful.vercel.app'
+	},
+	{
+		title: 'Fotosandrik',
+		imgSrc: '/static/rings-light.svg',
+		imgWidth: 120,
+		chipLabel: 'Simple design',
+		url: 'https://fotosandrik.sk/'
 	},
 	{
 		title: 'Visitjakub Brno',
@@ -104,12 +111,5 @@ export const smallProjects: SmallProject[] = [
 		imgWidth: 100,
 		chipLabel: 'School project',
 		url: 'https://pv179-bookhub.dyn.cloud.e-infra.cz/'
-	},
-	{
-		title: 'Brno Ossuary',
-		imgSrc: '/static/ossuary.png',
-		imgWidth: 120,
-		chipLabel: 'Admin interface',
-		url: 'https://podzemibrno.cz/mista-v-podzemi/kostnice-u-sv-jakuba/'
 	}
 ];
