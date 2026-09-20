@@ -391,11 +391,14 @@
 	border-bottom-left-radius: 8px;
 	border-bottom-right-radius: 8px;
 	background: rgba(10, 15, 22, 0.5);
-	padding: 0 16px 18px;
+	/* Top spacing must be padding, not the blurb's margin: with no padding or
+	   border above it, that margin collapses through and the bordered card
+	   starts 16px below the button it belongs to. */
+	padding: 16px 16px 18px;
 }
 
 .categoryCard .blurb {
-	margin-top: 16px;
+	margin-top: 0;
 }
 
 .categoryCard .group:first-of-type {

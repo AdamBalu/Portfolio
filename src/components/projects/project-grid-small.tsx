@@ -21,9 +21,13 @@ export const ProjectGridSmall = () => {
 	const [showMore, setShowMore] = useState(false);
 	const toggle = () => setShowMore(open => !open);
 
+	// page.tsx mounts this as a flex item, which would otherwise shrink to
+	// its content and narrow the grid tracks whenever fewer cards are shown.
 	return (
-		<div>
-			<motion.div layout className="max-w-6xl mx-auto p-4" transition={SWAP}>
+		<div className="w-full">
+			{/* No layout animation here: it tweens the wrapper's height with a scale
+			    transform, which visibly squashes the cards while it runs. */}
+			<div className="max-w-6xl mx-auto p-4">
 				<AnimatePresence mode="wait" initial={false}>
 					{showMore ? (
 						<motion.div
@@ -114,7 +118,7 @@ export const ProjectGridSmall = () => {
 						</motion.div>
 					)}
 				</AnimatePresence>
-			</motion.div>
+			</div>
 		</div>
 	);
 };

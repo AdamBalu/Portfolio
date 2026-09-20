@@ -10,10 +10,13 @@ const SPRING = { type: 'spring', stiffness: 420, damping: 20 } as const;
 
 /* Variants rather than inline props, so hovering the tile propagates down to
    the dots and the arrow instead of only scaling the button. */
+/* The rotating border glow sits *behind* the tile and only shows around a
+   tile smaller than its frame — SmallProjectCard sits at scale-[0.98] for the
+   same reason. Resting at 1 covered it, so it only appeared while pressed. */
 const tileVariants = {
-	rest: { scale: 1 },
-	open: { scale: 1 },
-	hover: { scale: 1.02 },
+	rest: { scale: 0.98 },
+	open: { scale: 0.98 },
+	hover: { scale: 0.98 },
 	tap: { scale: 0.94 }
 };
 
