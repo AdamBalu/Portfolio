@@ -310,8 +310,15 @@
 	outline-offset: 2px;
 }
 
+/* Open, the button becomes the lid of the card holding its contents. */
 .categoryHeadOpen {
 	border-color: rgba(207, 58, 46, 0.45);
+	/* Drop the bottom border rather than hiding it, so no 1px of page shows
+	   between lid and card; the padding makes up the lost pixel. */
+	border-bottom: 0;
+	padding-bottom: 17px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
 }
 
 /* Progress reads as a wash across the button itself. */
@@ -372,8 +379,31 @@
 	border-bottom: 1.5px solid var(--faded);
 }
 
+/* Only height animates here, so the card chrome lives on the inner element —
+   otherwise its border and padding stay visible at height 0. */
 .categoryBody {
 	overflow: hidden;
+}
+
+.categoryCard {
+	border: 1px solid rgba(207, 58, 46, 0.45);
+	border-top: 0;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+	background: rgba(10, 15, 22, 0.5);
+	padding: 0 16px 18px;
+}
+
+.categoryCard .blurb {
+	margin-top: 16px;
+}
+
+.categoryCard .group:first-of-type {
+	margin-top: 22px;
+}
+
+.categoryCard .foot {
+	margin-top: 28px;
 }
 
 /* ---------- body copy ---------- */
@@ -443,19 +473,30 @@
 	font-variant-numeric: tabular-nums;
 }
 
+/* The arrow lives on ::before so rotation happens inside a fixed 14px box —
+   rotating the bordered element itself pushed its corner past the container. */
 .chevron {
-	width: 9px;
-	height: 9px;
+	position: relative;
+	flex: 0 0 auto;
+	width: 14px;
+	height: 14px;
+}
+
+.chevron::before {
+	content: '';
+	position: absolute;
+	left: 50%;
+	top: 45%;
+	width: 8px;
+	height: 8px;
 	border-right: 1.5px solid var(--faded);
 	border-bottom: 1.5px solid var(--faded);
-	transform: rotate(45deg);
-	margin-top: -4px;
+	transform: translate(-50%, -50%) rotate(45deg);
 	transition: transform 0.22s ease;
 }
 
-.chevronCollapsed {
-	transform: rotate(-45deg);
-	margin-top: 0;
+.chevronCollapsed::before {
+	transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 .seal {

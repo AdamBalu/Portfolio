@@ -416,29 +416,32 @@ export const Checklist = () => {
 													opacity: { duration: 0.18 }
 												}}
 											>
-												<p className={styles.blurb}>{category.blurb}</p>
-												{category.groups.map(group => (
-													<GroupBlock
-														key={group.id}
-														group={group}
-														checked={checked}
-														collapsed={collapsed.has(group.id)}
-														showHeading={soleGroup === null}
-														sheenNonce={
-															sheen?.groupId === group.id ? sheen.nonce : null
-														}
-														onToggleCollapse={handleToggleCollapse}
-														onToggleItem={handleToggleItem}
-														onBulk={handleBulk}
-													/>
-												))}
-												{category.id === 'areas' ? (
-													<p className={styles.foot}>
-														Also out there: small Manor rooms behind mysterious
-														doors, scattered across the whole game — trivial to
-														endgame difficulty depending on where you find them.
-													</p>
-												) : null}
+												<div className={styles.categoryCard}>
+													<p className={styles.blurb}>{category.blurb}</p>
+													{category.groups.map(group => (
+														<GroupBlock
+															key={group.id}
+															group={group}
+															checked={checked}
+															collapsed={collapsed.has(group.id)}
+															showHeading={soleGroup === null}
+															sheenNonce={
+																sheen?.groupId === group.id ? sheen.nonce : null
+															}
+															onToggleCollapse={handleToggleCollapse}
+															onToggleItem={handleToggleItem}
+															onBulk={handleBulk}
+														/>
+													))}
+													{category.id === 'areas' ? (
+														<p className={styles.foot}>
+															Also out there: small Manor rooms behind
+															mysterious doors, scattered across the whole game
+															— trivial to endgame difficulty depending on where
+															you find them.
+														</p>
+													) : null}
+												</div>
 											</motion.div>
 										) : null}
 									</AnimatePresence>
