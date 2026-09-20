@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 72" width="170" height="72" role="img" aria-label="Expedition 33">
+  <text x="85" y="46" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', 'Cormorant Garamond', serif"
+        font-size="46" font-style="italic" font-weight="600" fill="#cf3a2e">33</text>
+  <path d="M40 57 L47 53 L58 58 L71 52 L84 59 L98 53 L111 59 L124 53 L134 58 L130 62 L118 58 L105 63 L92 57 L78 63 L65 57 L52 62 L44 59 Z"
+        fill="#cf3a2e" opacity="0.9"/>
+</svg>
