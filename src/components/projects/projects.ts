@@ -100,6 +100,17 @@ export const smallProjects: SmallProject[] = [
 		url: 'https://visitjakub.cz/'
 	},
 	{
+		title: 'BookHub',
+		imgSrc: '/static/bookhub-logo.svg',
+		imgWidth: 100,
+		chipLabel: 'School project',
+		url: 'https://pv179-bookhub.dyn.cloud.e-infra.cz/'
+	}
+];
+
+/** Shown in the dialog behind the "Other projects" tile in the grid's corner. */
+export const moreProjects: SmallProject[] = [
+	{
 		title: 'NavData',
 		imgSrc: '/static/navdata-logo.svg',
 		imgWidth: 160,
@@ -107,10 +118,10 @@ export const smallProjects: SmallProject[] = [
 		url: 'https://navsuite.cz/en/navdata-en/'
 	},
 	{
-		title: 'BookHub',
-		imgSrc: '/static/bookhub-logo.svg',
-		imgWidth: 100,
-		chipLabel: 'School project',
-		url: 'https://pv179-bookhub.dyn.cloud.e-infra.cz/'
+		title: 'Expedition 33 checklist',
+		imgSrc: '/static/expedition33-logo.svg',
+		imgWidth: 120,
+		chipLabel: 'Completionist tracker',
+		url: '/expedition-33'
 	}
 ];
