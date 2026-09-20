@@ -12,14 +12,28 @@ import {
 import { SmallProjectCard } from '@/components/projects/small-project-card';
 import { OtherProjectsTile } from '@/components/projects/other-projects';
 
-const SWAP = { type: 'spring', stiffness: 260, damping: 28 } as const;
+const SPRING = { type: 'spring', stiffness: 320, damping: 26 } as const;
+
+/* One cell of the section's 5x3 grid: 700px minus the p-4 padding and the two
+   row gaps, split three ways. Pinning the row height keeps the overflow tiles
+   on exactly the tracks the small project cards sit on, so the two states
+   swap in place instead of reflowing. */
+const CELL = 'calc((700px - 2rem - 1.5rem) / 3)';
+
+const cell = (delay: number) => ({
+	initial: { opacity: 0, scale: 0.86 },
+	animate: { opacity: 1, scale: 1 },
+	exit: { opacity: 0, scale: 0.86 },
+	transition: { ...SPRING, delay }
+});
 
 export const ProjectGrid = () => {
 	const [showMore, setShowMore] = useState(false);
-	const toggle = () => setShowMore(open => !open);
 
+	// page.tsx mounts this as a flex item, which would otherwise shrink to
+	// its content and narrow the grid tracks whenever fewer cards are shown.
 	return (
-		<div>
+		<div className="w-full">
 			<div
 				className="grid grid-cols-5 max-w-6xl mx-auto p-1 px-4 gap-3 scroll-m-24"
 				id="projects"
@@ -50,21 +64,20 @@ export const ProjectGrid = () => {
 				)}
 			</div>
 
-			{/* layout animates the height change, since the overflow grid is only as
-			    tall as the square tiles it holds. */}
-			<motion.div layout className="max-w-6xl mx-auto p-4" transition={SWAP}>
-				<AnimatePresence mode="wait" initial={false}>
-					{showMore ? (
-						<motion.div
-							key="more"
-							className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3"
-							initial={{ opacity: 0, x: 32 }}
-							animate={{ opacity: 1, x: 0 }}
-							exit={{ opacity: 0, x: -32 }}
-							transition={SWAP}
-						>
-							{moreProjects.map(project => (
-								<div key={project.title} className="aspect-square">
+			<div
+				className="grid grid-cols-5 gap-3 max-w-6xl mx-auto p-4"
+				style={{ gridTemplateRows: `repeat(3, ${CELL})`, gridAutoRows: CELL }}
+			>
+				{/* popLayout lifts exiting cells out of flow, so the entering set
+				    takes the tracks immediately instead of shuffling around them. */}
+				<AnimatePresence mode="popLayout" initial={false}>
+					{showMore
+						? moreProjects.map((project, index) => (
+								<motion.div
+									key={`more-${project.title}`}
+									className="h-full"
+									{...cell(index * 0.04)}
+								>
 									<SmallProjectCard
 										title={project.title}
 										imgSrc={project.imgSrc}
@@ -73,59 +86,63 @@ export const ProjectGrid = () => {
 										borderColor={project.borderColor}
 										url={project.url}
 									/>
-								</div>
-							))}
-							<div className="aspect-square">
-								<OtherProjectsTile isOpen onToggle={toggle} />
-							</div>
-						</motion.div>
-					) : (
-						<motion.div
-							key="main"
-							className="grid grid-cols-5 gap-3 h-[700px]"
-							initial={{ opacity: 0, x: -32 }}
-							animate={{ opacity: 1, x: 0 }}
-							exit={{ opacity: 0, x: 32 }}
-							transition={SWAP}
-						>
-							<div className="col-span-3 grid grid-cols-2 grid-rows-2 gap-3 h-full">
-								{projects.map((project, index) => (
-									<BigProjectCard
-										key={index}
-										title={project.title}
-										description={project.description}
-										chipColor={project.chipColor}
-										borderColor={project.borderColor}
-										chipLabels={project.chipLabels}
-										imgSrc={project.imgSrc}
-										imgWidth={project.imgWidth}
-										url={project.url}
-									/>
-								))}
-							</div>
-
-							{/* grid-flow-col fills column-major, so the tile keeps the
-							    bottom-right corner it had before. */}
-							<div className="col-span-2 grid grid-cols-2 grid-rows-3 grid-flow-col gap-3 h-full">
-								{smallProjects.map(project => (
-									<SmallProjectCard
-										key={project.title}
-										title={project.title}
-										imgSrc={project.imgSrc}
-										imgWidth={project.imgWidth}
-										chipLabel={project.chipLabel}
-										borderColor={project.borderColor}
-										url={project.url}
-									/>
-								))}
-								<div className="col-start-2 row-start-3">
-									<OtherProjectsTile isOpen={false} onToggle={toggle} />
-								</div>
-							</div>
-						</motion.div>
-					)}
+								</motion.div>
+							))
+						: [
+								<motion.div
+									key="big"
+									className="col-span-3 row-span-3 grid grid-cols-2 grid-rows-2 gap-3 h-full"
+									{...cell(0)}
+								>
+									{projects.map((project, index) => (
+										<BigProjectCard
+											key={index}
+											title={project.title}
+											description={project.description}
+											chipColor={project.chipColor}
+											borderColor={project.borderColor}
+											chipLabels={project.chipLabels}
+											imgSrc={project.imgSrc}
+											imgWidth={project.imgWidth}
+											url={project.url}
+										/>
+									))}
+								</motion.div>,
+								...smallProjects.map((project, index) => (
+									// Column-major into columns 4-5, leaving column 5 / row 3
+									// for the tile.
+									<motion.div
+										key={`main-${project.title}`}
+										className="h-full"
+										style={{
+											gridColumn: 4 + Math.floor(index / 3),
+											gridRow: 1 + (index % 3)
+										}}
+										{...cell(index * 0.04)}
+									>
+										<SmallProjectCard
+											title={project.title}
+											imgSrc={project.imgSrc}
+											imgWidth={project.imgWidth}
+											chipLabel={project.chipLabel}
+											borderColor={project.borderColor}
+											url={project.url}
+										/>
+									</motion.div>
+								))
+							]}
 				</AnimatePresence>
-			</motion.div>
+
+				{/* Outside AnimatePresence and placed explicitly, so it is the same
+				    element in both states and stays in its corner while the rest of
+				    the grid swaps around it. */}
+				<div style={{ gridColumn: 5, gridRow: 3 }}>
+					<OtherProjectsTile
+						isOpen={showMore}
+						onToggle={() => setShowMore(open => !open)}
+					/>
+				</div>
+			</div>
 		</div>
 	);
 };
