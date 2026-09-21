@@ -89,17 +89,25 @@ export const OtherProjectsTile = ({
 								</svg>
 							</motion.span>
 						) : (
-							[0, 1, 2].map((dot, index) => (
-								<motion.span
-									key={dot}
-									className="block h-2.5 w-2.5 rounded-full bg-primary-shadow dark:bg-dark-card-border"
-									variants={dotVariants}
-									initial={{ opacity: 0, scale: 0.4 }}
-									animate={{ opacity: 1, scale: 1 }}
-									exit={{ opacity: 0, scale: 0.4 }}
-									transition={{ ...SPRING, delay: index * 0.05 }}
-								/>
-							))
+							/* One presence child, as mode="wait" expects; the dots inside
+							   still answer the tile's hover on their own. */
+							<motion.span
+								key="dots"
+								className="flex gap-2.5"
+								initial={{ opacity: 0, scale: 0.4 }}
+								animate={{ opacity: 1, scale: 1 }}
+								exit={{ opacity: 0, scale: 0.4 }}
+								transition={SPRING}
+							>
+								{[0, 1, 2].map((dot, index) => (
+									<motion.span
+										key={dot}
+										className="block h-2.5 w-2.5 rounded-full bg-primary-shadow dark:bg-dark-card-border"
+										variants={dotVariants}
+										transition={{ ...SPRING, delay: index * 0.05 }}
+									/>
+								))}
+							</motion.span>
 						)}
 					</AnimatePresence>
 				</span>

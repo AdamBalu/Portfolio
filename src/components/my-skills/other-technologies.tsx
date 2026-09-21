@@ -1,34 +1,60 @@
+'use client';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { useRef } from 'react';
 
 import { otherTechnologies } from '@/data/skill-list';
 import { SkillCard } from '@/components/skills/skill-card';
 
-export const OtherTechnologies = () => (
-	<div className="flex flex-row flex-wrap gap-8 justify-end">
-		{otherTechnologies.map(skill => (
-			<div
-				key={skill.heading}
-				className="relative group hover:shadow-2xl hover:shadow-blue-500 hover:bg-primary/10 rounded-xl"
-			>
-				<Image
+import { curtain, ring } from './curtain';
+import { useRevealSequence } from './reveal-sequence';
+
+export const OtherTechnologies = () => {
+	const { markDone } = useRevealSequence();
+	const finished = useRef(0);
+
+	// Counted per icon rather than read off the container, whose own variant
+	// animates nothing and would report completion before the first pop.
+	const onIconDone = () => {
+		finished.current += 1;
+		if (finished.current === otherTechnologies.length) markDone('other');
+	};
+
+	return (
+		<motion.div
+			className="flex flex-row flex-wrap gap-8 justify-end"
+			variants={curtain(true)}
+			initial="hidden"
+			whileInView="visible"
+			viewport={{ once: true, amount: 0.2 }}
+		>
+			{otherTechnologies.map(skill => (
+				<motion.div
 					key={skill.heading}
-					src={skill.iconSrc}
-					alt={skill.heading}
-					width={64}
-					height={64}
-				/>
-				<div className="absolute bottom-0 right-0 bg-[#9e43ec] text-yellow-500 bg-opacity-90 rounded-full p-1 text-xs">
-					{'★'.repeat(skill.starCount)}
-				</div>
-				<div className="absolute group-hover:visible invisible transform -translate-x-[calc(50%-30px)] transition duration-200 z-10">
-					<SkillCard
-						iconSrc={skill.iconSrc}
-						heading={skill.heading}
-						description={skill.description}
-						starCount={skill.starCount}
+					className="relative group hover:z-20 hover:shadow-2xl hover:shadow-blue-500 hover:bg-primary/10 rounded-xl"
+					variants={ring}
+					onAnimationComplete={onIconDone}
+				>
+					<Image
+						key={skill.heading}
+						src={skill.iconSrc}
+						alt={skill.heading}
+						width={64}
+						height={64}
 					/>
-				</div>
-			</div>
-		))}
-	</div>
-);
+					<div className="absolute bottom-0 right-0 bg-[#9e43ec] text-yellow-500 bg-opacity-90 rounded-full p-1 text-xs">
+						{'★'.repeat(skill.starCount)}
+					</div>
+					<div className="absolute group-hover:visible invisible transform -translate-x-[calc(50%-30px)] transition duration-200 z-10">
+						<SkillCard
+							iconSrc={skill.iconSrc}
+							heading={skill.heading}
+							description={skill.description}
+							starCount={skill.starCount}
+						/>
+					</div>
+				</motion.div>
+			))}
+		</motion.div>
+	);
+};

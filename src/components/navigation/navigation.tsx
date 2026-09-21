@@ -6,6 +6,11 @@ import { scrollToSection } from '@/common/functions/scroll-to-section';
 
 import { ChangeThemeButton } from './change-theme-button';
 
+// Dropdown entries are circles under the same rules as the trigger and the
+// social icons, so the whole header reads as one set of controls.
+const MENU_ITEM =
+	'mb-2 w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-primary-shadow bg-primary-lightest dark:bg-dark-card dark:border-dark-card-border hover:bg-primary dark:hover:bg-dark-hovered transition-all duration-300 ease-in-out flex items-center justify-center';
+
 export const Navigation = () => {
 	useEffect(() => {
 		const navbarCheckbox = document.getElementById(
@@ -50,33 +55,33 @@ export const Navigation = () => {
 
 	return (
 		<nav className="sticky top-4 sm:top-10 w-full z-10" role="navigation">
-			<div className="menuToggle flex flex-col items-end relative mr-4 sm:mr-6 xl:mr-[80px]">
+			{/* Margin derives from the hero's right edge (max-w-[1100px] centred at xl,
+			    75% wide at sm) so the icon keeps a constant gap from the photo instead
+			    of colliding with it at 1280–1370px. The constants assume an icon up to
+			    56px wide; the 48px circle only widens the gap. */}
+			<div className="menuToggle flex flex-col items-end relative mr-4 sm:mr-[min(1.5rem,max(0.5rem,calc(12.5%_-_72px)))] xl:mr-[max(0.5rem,calc((100%_-_1100px)/2_-_80px))]">
 				<input type="checkbox" id="navbar-checkbox" className="absolute" />
 				<label htmlFor="navbar-checkbox" className="hidden">
 					no label for you
 				</label>
-				<div className="bg-primary-lighter sm:min-w-12 dark:bg-dark-card dark:border border-dark-card-border rounded-md absolute top-0 sm:top-[63px] xl:top-[24px] w-10 h-10 sm:w-[56px] sm:h-[56px] flex items-center justify-center">
-					<div>
-						<span className="w-[25px] sm:w-[33px] mt-0 burger-line" />
-						<span className="w-[25px] sm:w-[33px] mt-0.5 sm:mt-1.5 burger-line" />
-						<span className="w-[25px] sm:w-[33px] mt-0.5 sm:mt-1.5 burger-line" />
-					</div>
+				{/* Same circle as the social icons: thin primary-shadow border, hover fill,
+				    300ms ease. The two lines rotate into an × while the menu is open. */}
+				<div className="menuIcon absolute top-0 sm:top-[63px] xl:top-[24px] w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-primary-shadow bg-primary-lightest dark:bg-dark-card dark:border-dark-card-border hover:bg-primary dark:hover:bg-dark-hovered transition-all duration-300 ease-in-out">
+					<span className="burger-line" />
+					<span className="burger-line" />
 				</div>
 				<ul className="menuItem right-0">
 					{NavigationItems.map((item, _) => (
-						<li
-							key={item.href}
-							className="mb-2 bg-white dark:bg-dark-card border-b-2 border-l-2 hover:border-none border-dark-card-border"
-						>
+						<li key={item.href} className={MENU_ITEM}>
 							<button
 								onClick={() => scrollToSection(item.href)}
-								className="uppercase dark:border-secondary w-14 h-14 hover:text-primary hover:dark:text-primary-dark p-1 flex items-center justify-center"
+								className="w-full h-full rounded-full uppercase hover:text-primary-shadow hover:dark:text-primary-dark flex items-center justify-center"
 							>
 								<span className="material-symbols-outlined">{item.imgSrc}</span>
 							</button>
 						</li>
 					))}
-					<li className="bg-white dark:bg-dark-card border-b-2 border-l-2 hover:border-none border-dark-card-border">
+					<li className={MENU_ITEM}>
 						<ChangeThemeButton />
 					</li>
 				</ul>
