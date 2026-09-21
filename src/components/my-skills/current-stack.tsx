@@ -15,21 +15,37 @@ const JOLT = { type: 'spring', stiffness: 500, damping: 14 } as const;
    "..wait.. these are probably outdated": the arrow lands, nothing happens
    for a beat, "wait," pops in alone, hangs, then the rest lands word by word. */
 /* Times run from the moment the section is allowed to start, which is only
-   once the icon groups above have finished dropping in. */
-const FUNNEL_AT = 0.6; // a beat to take the icons in before the funnel drops
-const WAIT_AT = 1.8; // the funnel settled around 1.3s; nothing happens, then this
-const REST_AT = 2.4; // "wait," has hung alone for a moment
+   once the icon groups above have finished dropping in. The caption is the
+   thought and the funnel is its consequence, so the caption goes first:
+   a beat, "wait," alone, a hang, the rest of the sentence, then the drop. */
+const WAIT_AT = 0.6; // a beat to take the icons in, then "wait,"
+const REST_AT = 1.2; // "wait," has hung alone for a moment
 const WORD_GAP = 0.06;
-const SUBTITLE_AT = 2.95;
-const PILLS_AT = 3.1;
+const FUNNEL_AT = 1.9; // the sentence has landed; the funnel drops in answer
+const FLOW_AT = 2.55; // the funnel has landed; the lines stream in
+const FLOW_GAP = 0.08;
+const SUBTITLE_AT = 3.0;
+const PILLS_AT = 3.15;
 const FALLBACK_AFTER_MS = 3500; // start anyway if the icons never report in
 
 const REST = 'these are probably outdated right now'.split(' ');
 
-/* Wide mouth spanning both icon groups, sides sweeping in to a neck, then the
-   arrowhead: the classic stack pouring into what comes after it. */
-const FUNNEL_PATH =
-	'M0 0H1000C1000 70 570 60 545 120V150H600L500 210L400 150H455V120C430 60 0 70 0 0Z';
+/* After the sketch: two flaring sides with the mouth left open, a neck about
+   a third of the width, and an arrowhead whose base is wider than the neck.
+   OUTLINE is what gets stroked; FILL closes the mouth with a slight bow so a
+   faint tint can sit inside without drawing a lid across the top. */
+const OUTLINE =
+	'M60 40C120 120 165 200 165 300V400H110L250 600L390 400H335V300C335 200 380 120 440 40';
+const FILL = `${OUTLINE}C380 10 120 10 60 40Z`;
+/* Short strokes converging into the neck: what is being drawn down. */
+const FLOW_LINES = [
+	'M130 60C170 90 200 120 215 150',
+	'M370 60C330 90 300 120 285 150',
+	'M245 40C240 90 240 130 245 170',
+	'M175 140C200 170 215 200 225 240',
+	'M325 140C300 170 285 200 275 240',
+	'M255 200C252 240 250 280 252 330'
+];
 
 const section: Variants = { hidden: {}, visible: {} };
 
@@ -80,7 +96,19 @@ const makeVariants = (beat: number) => {
 		hidden: { opacity: 0, y: 24, scale: 0.6, rotate: 6 },
 		visible: { opacity: 1, y: 0, scale: 1, rotate: 0, transition: POP }
 	};
-	return { funnel, waitWord, word, subtitle, list, pill };
+	const flowLine = (index: number): Variants => ({
+		hidden: { pathLength: 0, opacity: 0 },
+		visible: {
+			pathLength: 1,
+			opacity: 1,
+			transition: {
+				duration: 0.45,
+				ease: 'easeOut',
+				delay: at(FLOW_AT + index * FLOW_GAP)
+			}
+		}
+	});
+	return { funnel, waitWord, word, subtitle, list, pill, flowLine };
 };
 
 export const CurrentStack = () => {
@@ -99,7 +127,7 @@ export const CurrentStack = () => {
 	const reduceMotion = usePrefersReducedMotion();
 	// With nothing moving there is nothing to wait for, so start on sight.
 	const go = inView && (iconsDone || forced || reduceMotion);
-	const { funnel, waitWord, word, subtitle, list, pill } = useMemo(
+	const { funnel, waitWord, word, subtitle, list, pill, flowLine } = useMemo(
 		() => makeVariants(reduceMotion ? 0 : 1),
 		[reduceMotion]
 	);
@@ -112,56 +140,7 @@ export const CurrentStack = () => {
 			initial="hidden"
 			animate={go ? 'visible' : 'hidden'}
 		>
-			<motion.svg
-				viewBox="0 0 1000 220"
-				className="w-full max-w-[1100px] h-auto"
-				variants={funnel}
-				style={{ originY: 0 }}
-				aria-hidden="true"
-			>
-				<defs>
-					<linearGradient id="funnel-fill" x1="0" y1="0" x2="0" y2="1">
-						<stop offset="0" stopColor="#B5E3F1" stopOpacity="0.55" />
-						<stop offset="1" stopColor="#A53DBF" stopOpacity="0.7" />
-					</linearGradient>
-					<linearGradient id="funnel-flow" x1="0" y1="0" x2="0" y2="1">
-						<stop offset="0" stopColor="#fff" stopOpacity="0" />
-						<stop offset="0.5" stopColor="#fff" stopOpacity="0.55" />
-						<stop offset="1" stopColor="#fff" stopOpacity="0" />
-					</linearGradient>
-					<clipPath id="funnel-clip">
-						<path d={FUNNEL_PATH} />
-					</clipPath>
-				</defs>
-				<path
-					d={FUNNEL_PATH}
-					fill="url(#funnel-fill)"
-					stroke="#7bb3c4"
-					strokeWidth="2"
-					strokeLinejoin="round"
-				/>
-				{/* A soft band of light drifting down through the funnel, with a long
-				    pause between passes; skipped for reduced-motion users. */}
-				{reduceMotion ? null : (
-					<motion.rect
-						x="0"
-						width="1000"
-						height="70"
-						fill="url(#funnel-flow)"
-						clipPath="url(#funnel-clip)"
-						initial={{ y: -70 }}
-						animate={go ? { y: 220 } : { y: -70 }}
-						transition={{
-							duration: 1.4,
-							ease: 'easeInOut',
-							delay: FUNNEL_AT + 0.9,
-							repeat: Infinity,
-							repeatDelay: 2.4
-						}}
-					/>
-				)}
-			</motion.svg>
-			<p className="mt-4 px-2 text-center text-base sm:text-xl font-bold text-slate-500 dark:text-slate-300">
+			<p className="mb-4 px-2 text-center text-base sm:text-xl font-bold text-slate-500 dark:text-slate-300">
 				<motion.span className="inline-block italic" variants={waitWord}>
 					wait,
 				</motion.span>{' '}
@@ -174,6 +153,40 @@ export const CurrentStack = () => {
 					</Fragment>
 				))}
 			</p>
+			<motion.svg
+				viewBox="0 0 500 620"
+				className="w-full max-w-[300px] sm:max-w-[360px] h-auto"
+				variants={funnel}
+				style={{ originY: 0 }}
+				aria-hidden="true"
+			>
+				<defs>
+					<linearGradient id="funnel-stroke" x1="0" y1="0" x2="0" y2="1">
+						<stop offset="0" stopColor="#B5E3F1" />
+						<stop offset="1" stopColor="#A53DBF" />
+					</linearGradient>
+				</defs>
+				<path d={FILL} fill="url(#funnel-stroke)" fillOpacity="0.14" />
+				<path
+					d={OUTLINE}
+					fill="none"
+					stroke="url(#funnel-stroke)"
+					strokeWidth="9"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+				/>
+				{FLOW_LINES.map((d, index) => (
+					<motion.path
+						key={d}
+						d={d}
+						fill="none"
+						stroke="#7bb3c4"
+						strokeWidth="6"
+						strokeLinecap="round"
+						variants={flowLine(index)}
+					/>
+				))}
+			</motion.svg>
 			<motion.p
 				className="mt-6 text-xs sm:text-base text-center"
 				variants={subtitle}
