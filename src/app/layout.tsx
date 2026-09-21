@@ -37,7 +37,10 @@ const RootLayout = ({
 }: Readonly<{
 	children: React.ReactNode;
 }>) => (
-	<html lang="en">
+	// next-themes sets class and color-scheme on <html> before hydration, so
+	// the server markup can never match here. The suppression is scoped to
+	// this one element.
+	<html lang="en" suppressHydrationWarning>
 		<body
 			id="bg-myown"
 			className={`min-h-screen flex flex-col ${raleway.className} text-slate-700 dark:text-slate-200 transition-color duration-500 ease-in-out bg-[url(/static/cooked_bg_white.svg)]  dark:bg-[url(/static/cooked_bg_new.svg)] dark:from-secondary-lighter dark:to-custom-purple-dark`}
