@@ -43,8 +43,15 @@ const RootLayout = ({
 	<html lang="en" suppressHydrationWarning>
 		<body
 			id="bg-myown"
-			className={`min-h-screen flex flex-col ${raleway.className} text-slate-700 dark:text-slate-200 transition-color duration-500 ease-in-out bg-[url(/static/cooked_bg_white.svg)]  dark:bg-[url(/static/cooked_bg_new.svg)] dark:from-secondary-lighter dark:to-custom-purple-dark`}
+			className={`relative isolate min-h-screen flex flex-col ${raleway.className} text-slate-700 dark:text-slate-200 transition-color duration-500 ease-in-out bg-[url(/static/cooked_bg_white.svg)]`}
 		>
+			{/* background-image cannot transition, so the dark pattern lives on its
+			    own layer and fades in over the light one. Absolute rather than fixed
+			    so it scrolls with the page exactly as the body background does. */}
+			<div
+				aria-hidden="true"
+				className="pointer-events-none absolute inset-0 -z-10 bg-[url(/static/cooked_bg_new.svg)] opacity-0 transition-opacity duration-700 ease-in-out motion-reduce:transition-none dark:opacity-100"
+			/>
 			<div className="transition-background duration-700 ease-in-out">
 				<Providers>
 					<div className="max-w-[1420px] mx-auto">{children}</div>
