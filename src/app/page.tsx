@@ -17,6 +17,7 @@ import {
 import { MyTimeline } from '@/components/timeline/my-timeline';
 import { MotionProvider } from '@/components/common/motion-provider';
 import { CurrentStack } from '@/components/my-skills/current-stack';
+import { RevealSequenceProvider } from '@/components/my-skills/reveal-sequence';
 
 const Page = async () => (
 	<>
@@ -86,11 +87,13 @@ const Page = async () => (
 				className="scroll-m-16 md:scroll-m-32 2xl:mx-0 mb-12 sm:mb-64"
 			>
 				<MotionProvider>
-					<SkillsHeading />
-					<div className="mx-8 sm:mx-10 md:mx-8 xl:mx-20 2xl:mx-0 mt-2 sm:mt-6">
-						<SkillGrid />
-					</div>
-					<CurrentStack />
+					<RevealSequenceProvider>
+						<SkillsHeading />
+						<div className="mx-8 sm:mx-10 md:mx-8 xl:mx-20 2xl:mx-0 mt-2 sm:mt-6">
+							<SkillGrid />
+						</div>
+						<CurrentStack />
+					</RevealSequenceProvider>
 				</MotionProvider>
 			</div>
 		</main>
