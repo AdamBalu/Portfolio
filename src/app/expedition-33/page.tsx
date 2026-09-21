@@ -12,7 +12,7 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-	title: 'Expedition 33 — Area Checklist',
+	title: 'Expedition 33 100% playthrough checklist',
 	description:
 		'Every zone, Nevron quest, collectible and missable in Clair Obscur: Expedition 33, with community level ballparks. Ticks save in your browser.'
 };

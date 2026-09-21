@@ -323,8 +323,13 @@ export const Checklist = () => {
 						</div>
 						<div className={styles.mastLine}>
 							<h1 className={styles.title}>
-								Expedition 33
-								<span className={styles.stroke} aria-hidden="true" />
+								<span className={styles.titleMain}>
+									Expedition 33
+									<span className={styles.stroke} aria-hidden="true" />
+								</span>{' '}
+								<span className={styles.subtitle}>
+									100% playthrough checklist
+								</span>
 							</h1>
 							<div className={styles.tally}>
 								<span key={checked.size} className={styles.count}>
