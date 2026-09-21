@@ -50,7 +50,10 @@ export const Navigation = () => {
 
 	return (
 		<nav className="sticky top-4 sm:top-10 w-full z-10" role="navigation">
-			<div className="menuToggle flex flex-col items-end relative mr-4 sm:mr-6 xl:mr-[80px]">
+			{/* Margin derives from the hero's right edge (max-w-[1100px] centred at xl,
+			    75% wide at sm) so the icon keeps a constant gap from the photo instead
+			    of colliding with it at 1280–1370px. At >=1420px it equals the old 80px. */}
+			<div className="menuToggle flex flex-col items-end relative mr-4 sm:mr-[min(1.5rem,max(0.5rem,calc(12.5%_-_72px)))] xl:mr-[max(0.5rem,calc((100%_-_1100px)/2_-_80px))]">
 				<input type="checkbox" id="navbar-checkbox" className="absolute" />
 				<label htmlFor="navbar-checkbox" className="hidden">
 					no label for you
