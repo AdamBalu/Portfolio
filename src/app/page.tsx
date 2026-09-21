@@ -89,7 +89,9 @@ const Page = async () => (
 				<MotionProvider>
 					<RevealSequenceProvider>
 						<SkillsHeading />
-						<div className="mx-8 sm:mx-10 md:mx-8 xl:mx-20 2xl:mx-0 mt-2 sm:mt-6">
+						{/* The hover cards overhang their icon by ~88px on each side, so
+						    the grid keeps at least that much margin at 2xl. */}
+						<div className="mx-8 sm:mx-10 md:mx-8 xl:mx-20 2xl:mx-8 mt-2 sm:mt-6">
 							<SkillGrid />
 						</div>
 						<CurrentStack />

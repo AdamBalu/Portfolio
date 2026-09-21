@@ -1,6 +1,10 @@
 import { type Variants } from 'framer-motion';
 
-const POP = { type: 'spring', stiffness: 420, damping: 13 } as const;
+/* A back-out tween rather than a spring: it overshoots the same way but ends
+   exactly on the target, so the icon is left with no transform at all. A
+   spring's residual rotate would tilt the hover card and keep a stacking
+   context that traps it under the icons that follow. */
+const POP = { duration: 0.55, ease: [0.34, 1.56, 0.64, 1] } as const;
 
 /* Icons drop from the rod one after another and swing into place, like rings
    drawn along a curtain rail. delayChildren leaves the rod time to spring out

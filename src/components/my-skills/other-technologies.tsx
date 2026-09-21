@@ -31,7 +31,7 @@ export const OtherTechnologies = () => {
 			{otherTechnologies.map(skill => (
 				<motion.div
 					key={skill.heading}
-					className="relative group hover:shadow-2xl hover:shadow-blue-500 hover:bg-primary/10 rounded-xl"
+					className="relative group hover:z-20 hover:shadow-2xl hover:shadow-blue-500 hover:bg-primary/10 rounded-xl"
 					variants={ring}
 					onAnimationComplete={onIconDone}
 				>
