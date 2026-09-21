@@ -1,14 +1,25 @@
+'use client';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 import { otherTechnologies } from '@/data/skill-list';
 import { SkillCard } from '@/components/skills/skill-card';
 
+import { curtain, ring } from './curtain';
+
 export const OtherTechnologies = () => (
-	<div className="flex flex-row flex-wrap gap-8 justify-end">
+	<motion.div
+		className="flex flex-row flex-wrap gap-8 justify-end"
+		variants={curtain(true)}
+		initial="hidden"
+		whileInView="visible"
+		viewport={{ once: true, amount: 0.2 }}
+	>
 		{otherTechnologies.map(skill => (
-			<div
+			<motion.div
 				key={skill.heading}
 				className="relative group hover:shadow-2xl hover:shadow-blue-500 hover:bg-primary/10 rounded-xl"
+				variants={ring}
 			>
 				<Image
 					key={skill.heading}
@@ -28,7 +39,7 @@ export const OtherTechnologies = () => (
 						starCount={skill.starCount}
 					/>
 				</div>
-			</div>
+			</motion.div>
 		))}
-	</div>
+	</motion.div>
 );
