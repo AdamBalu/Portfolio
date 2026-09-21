@@ -23,10 +23,10 @@ export const ChangeThemeButton = () => {
 	}
 
 	return (
-		<div>
+		<div className="w-full h-full">
 			<Button
 				name="change theme"
-				className="px-4 py-2 font-semibold rounded-md"
+				className="w-full h-full rounded-full flex items-center justify-center"
 				onClick={() => {
 					setTheme(theme === 'light' ? 'dark' : 'light');
 				}}
