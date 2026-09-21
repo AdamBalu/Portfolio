@@ -57,6 +57,17 @@ export const Checklist = () => {
 
 	/* ---------- lifecycle ---------- */
 
+	const flashStat = (next: Flash) => {
+		if (statTimer.current !== null) window.clearTimeout(statTimer.current);
+		setStat(next);
+		statTimer.current = window.setTimeout(() => setStat(null), 1800);
+	};
+
+	// localStorage can only be read on the client, and reading it during render
+	// (a lazy useState initialiser) would make the server and client disagree
+	// on every aria-pressed at hydration. Loading it in the mount effect is the
+	// hydration-safe pattern, so this one effect sets state on purpose.
+	/* eslint-disable react-hooks/set-state-in-effect */
 	useEffect(() => {
 		reduced.current = window.matchMedia(
 			'(prefers-reduced-motion: reduce)'
@@ -80,6 +91,7 @@ export const Checklist = () => {
 			if (statTimer.current !== null) window.clearTimeout(statTimer.current);
 		};
 	}, []);
+	/* eslint-enable react-hooks/set-state-in-effect */
 
 	useEffect(() => {
 		if (!dirty.current) return;
@@ -107,17 +119,9 @@ export const Checklist = () => {
 		}, 300);
 
 		return () => window.clearTimeout(timer);
-		// flashStat is stable for the component's lifetime.
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [checked, collapsed, openCategories]);
 
 	/* ---------- flourishes ---------- */
-
-	const flashStat = (next: Flash) => {
-		if (statTimer.current !== null) window.clearTimeout(statTimer.current);
-		setStat(next);
-		statTimer.current = window.setTimeout(() => setStat(null), 1800);
-	};
 
 	const later = (fn: () => void, delay: number) => {
 		const id = window.setTimeout(fn, delay);
