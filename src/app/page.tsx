@@ -66,11 +66,15 @@ const Page = async () => (
 				</div>
 			</div>
 			<div className="justify-center items-center h-[calc(100vh-152px)] min-h-[1000px] mb-[calc(40vh)] hidden min-[1280px]:flex">
-				<ProjectGrid />
+				<MotionProvider>
+					<ProjectGrid />
+				</MotionProvider>
 			</div>
 
 			<div className="flex justify-center items-center min-h-[calc(100vh-152px)] h-max mb-10 min-[1280px]:hidden">
-				<ProjectGridSmall />
+				<MotionProvider>
+					<ProjectGridSmall />
+				</MotionProvider>
 			</div>
 
 			<div

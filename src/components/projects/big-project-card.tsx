@@ -27,7 +27,7 @@ export const BigProjectCard = ({
 	chipColor = 'emerald',
 	chipLabels
 }: BigProjectCardProps) => (
-	<Box className="rounded-2xl transition-all duration-100 dark:hover:shadow-[0_0_15px_15px_#192C65] dark:border border-dark-card-border hover:border-transparent">
+	<Box className="rounded-2xl transition-all duration-100 dark:hover:shadow-[0_0_15px_15px_#192C65] dark:border border-dark-card-border hover:border-transparent h-full">
 		<Box className={styles.cardHoverBorderEffect}>
 			<Card
 				elevation={0}

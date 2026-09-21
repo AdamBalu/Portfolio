@@ -1,3 +1,8 @@
+'use client';
+import { motion } from 'framer-motion';
+
+import { underline } from '@/components/projects/entrance';
+
 export const UnderlinedText = ({
 	text,
 	subText,
@@ -18,8 +23,11 @@ export const UnderlinedText = ({
 			>
 				{text}
 			</h1>
-			<div
+			{/* Draws itself in when a motion parent reveals it; static otherwise. */}
+			<motion.div
 				className={`p-px bg-gradient-to-r from-primary to-primary-shadow ${small ? 'h-1' : 'h-2'}`}
+				variants={underline}
+				style={{ originX: end ? 1 : 0 }}
 			/>
 		</div>
 		<div
