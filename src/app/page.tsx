@@ -15,6 +15,8 @@ import {
 	MailFilled
 } from '@/components/socials/linkedin';
 import { MyTimeline } from '@/components/timeline/my-timeline';
+import { MotionProvider } from '@/components/common/motion-provider';
+import { CurrentStack } from '@/components/my-skills/current-stack';
 
 const Page = async () => (
 	<>
@@ -22,7 +24,7 @@ const Page = async () => (
 		<div className="h-2 sm:h-10" />
 		<Navigation />
 		<main
-			className="flex flex-col flex-grow mt-10 xl:mt-0 scroll-m-32"
+			className="flex flex-col flex-grow mt-10 xl:mt-0 scroll-m-32 overflow-x-clip"
 			id="home"
 		>
 			<div
@@ -74,17 +76,22 @@ const Page = async () => (
 				id="timeline"
 				className="scroll-m-16 md:scroll-m-32 2xl:mx-0 mb-12 min-h-dvh mx-4 mt-[150px] mb-[200px] sm:mb-[600px]"
 			>
-				<MyTimeline />
+				<MotionProvider>
+					<MyTimeline />
+				</MotionProvider>
 			</div>
 
 			<div
 				id="skills"
 				className="scroll-m-16 md:scroll-m-32 2xl:mx-0 mb-12 sm:mb-64"
 			>
-				<SkillsHeading />
-				<div className="mx-8 sm:mx-10 md:mx-8 xl:mx-20 2xl:mx-0 mt-2 sm:mt-6">
-					<SkillGrid />
-				</div>
+				<MotionProvider>
+					<SkillsHeading />
+					<div className="mx-8 sm:mx-10 md:mx-8 xl:mx-20 2xl:mx-0 mt-2 sm:mt-6">
+						<SkillGrid />
+					</div>
+					<CurrentStack />
+				</MotionProvider>
 			</div>
 		</main>
 		<Footer />
