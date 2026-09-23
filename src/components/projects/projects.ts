@@ -99,29 +99,29 @@ export const smallProjects: SmallProject[] = [
 		url: 'https://visitjakub.cz/'
 	},
 	{
-		title: 'BookHub',
-		imgSrc: '/static/bookhub-logo.svg',
-		imgWidth: 100,
-		chipLabel: 'School project',
-		url: 'https://pv179-bookhub.dyn.cloud.e-infra.cz/'
+		title: 'Chore calendar',
+		imgSrc: '/static/chore-calendar-logo.png',
+		imgWidth: 90,
+		chipLabel: 'Task calendar',
+		url: 'https://chorecalendar.vercel.app/'
 	}
 ];
 
 /** Shown in the dialog behind the "Other projects" tile in the grid's corner. */
 export const moreProjects: SmallProject[] = [
 	{
+		title: 'BookHub',
+		imgSrc: '/static/bookhub-logo.svg',
+		imgWidth: 100,
+		chipLabel: 'School project',
+		url: 'https://pv179-bookhub.dyn.cloud.e-infra.cz/'
+	},
+	{
 		title: 'NavData',
 		imgSrc: '/static/navdata-logo.svg',
 		imgWidth: 160,
 		chipLabel: 'Train navigation',
 		url: 'https://navsuite.cz/en/navdata-en/'
-	},
-	{
-		title: 'Chore calendar',
-		imgSrc: '/static/chore-calendar-logo.png',
-		imgWidth: 90,
-		chipLabel: 'Task calendar',
-		url: 'https://chorecalendar.vercel.app/'
 	},
 	{
 		title: 'Expedition 33 checklist',
