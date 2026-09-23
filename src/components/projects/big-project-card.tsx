@@ -13,7 +13,7 @@ type BigProjectCardProps = {
 	imgWidth: number;
 	url: string;
 	borderColor?: string;
-	chipColor?: 'emerald' | 'blue' | 'purple' | 'amber';
+	chipColor?: 'emerald' | 'blue' | 'purple' | 'amber' | 'pink';
 	chipLabels: string[];
 };
 

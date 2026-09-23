@@ -52,7 +52,10 @@ const RootLayout = ({
 				aria-hidden="true"
 				className="pointer-events-none absolute inset-0 -z-10 bg-[url(/static/cooked_bg_new.svg)] opacity-0 transition-opacity duration-700 ease-in-out motion-reduce:transition-none dark:opacity-100"
 			/>
-			<div className="transition-background duration-700 ease-in-out">
+			{/* Clips sideways overhang at the screen edge, not the 1420px column,
+			    so hover cards and entrance offsets can use the side margins of
+			    wide screens without ever adding a horizontal scrollbar. */}
+			<div className="transition-background duration-700 ease-in-out overflow-x-clip">
 				<Providers>
 					<div className="max-w-[1420px] mx-auto">{children}</div>
 				</Providers>

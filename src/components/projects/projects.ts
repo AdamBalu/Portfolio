@@ -1,7 +1,7 @@
 type Project = {
 	title: string;
 	description: string;
-	chipColor: 'emerald' | 'blue' | 'purple' | 'amber';
+	chipColor: 'emerald' | 'blue' | 'purple' | 'amber' | 'pink';
 	borderColor?: string;
 	imgSrc: string;
 	imgWidth: number;
@@ -56,17 +56,16 @@ export const projects: Project[] = [
 		imgWidth: 40,
 		url: 'https://fancy-driller.vercel.app/'
 	},
-
 	{
-		title: 'Chore calendar',
+		title: 'Choreo',
 		description:
-			'A calendar app that simplifies creating and managing daily tasks',
-		chipColor: 'amber',
-		borderColor: 'border-amber-100 dark:border-amber-900',
-		chipLabels: ['Straightforward', 'Fun to use'],
-		imgSrc: '/static/chore-calendar-logo.png',
-		imgWidth: 40,
-		url: 'https://chorecalendar.vercel.app/'
+			'Whose turn is it? A squishy chore rotation for shared flats, with XP, badges and a monthly prize for the top flatmate',
+		chipColor: 'pink',
+		borderColor: 'border-pink-200 dark:border-pink-900',
+		chipLabels: ['Gamified', '7 languages', 'Installable app', 'Fullstack'],
+		imgSrc: '/static/choreo-logo.svg',
+		imgWidth: 30,
+		url: 'https://thechoreo.vercel.app/'
 	}
 ];
 
@@ -100,16 +99,23 @@ export const smallProjects: SmallProject[] = [
 		url: 'https://visitjakub.cz/'
 	},
 	{
-		title: 'BookHub',
-		imgSrc: '/static/bookhub-logo.svg',
-		imgWidth: 100,
-		chipLabel: 'School project',
-		url: 'https://pv179-bookhub.dyn.cloud.e-infra.cz/'
+		title: 'Chore calendar',
+		imgSrc: '/static/chore-calendar-logo.png',
+		imgWidth: 90,
+		chipLabel: 'Task calendar',
+		url: 'https://chorecalendar.vercel.app/'
 	}
 ];
 
 /** Shown in the dialog behind the "Other projects" tile in the grid's corner. */
 export const moreProjects: SmallProject[] = [
+	{
+		title: 'BookHub',
+		imgSrc: '/static/bookhub-logo.svg',
+		imgWidth: 100,
+		chipLabel: 'School project',
+		url: 'https://pv179-bookhub.dyn.cloud.e-infra.cz/'
+	},
 	{
 		title: 'NavData',
 		imgSrc: '/static/navdata-logo.svg',
