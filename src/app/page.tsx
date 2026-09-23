@@ -25,7 +25,7 @@ const Page = async () => (
 		<div className="h-2 sm:h-10" />
 		<Navigation />
 		<main
-			className="flex flex-col flex-grow mt-10 xl:mt-0 scroll-m-32 overflow-x-clip"
+			className="flex flex-col flex-grow mt-10 xl:mt-0 scroll-m-32"
 			id="home"
 		>
 			<div
